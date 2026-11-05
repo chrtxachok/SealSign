@@ -1,0 +1,54 @@
+{
+  "status": "proposal_not_executed",
+  "experiment_id": "E01",
+  "dataset": {
+    "source": "https://universe.roboflow.com/sig-and-stamps/sig-stamps",
+    "archive": null,
+    "revision": null,
+    "archive_sha256": null,
+    "manifest": null,
+    "split_sha256": null,
+    "selection_status": "candidate_requires_version_license_and_annotation_audit"
+  },
+  "classes": {
+    "0": "stamp",
+    "1": "signature"
+  },
+  "model": {
+    "candidate": "YOLO11s",
+    "library_version": null,
+    "initial_weights_sha256": null
+  },
+  "training": {
+    "seed": 42,
+    "imgsz": 1024,
+    "epochs": 100,
+    "patience": 20,
+    "batch": 4,
+    "optimizer": "AdamW",
+    "lr0": 0.001,
+    "horizontal_flip": false,
+    "vertical_flip": false,
+    "mosaic": false,
+    "mixup": false,
+    "device": "cuda:0"
+  },
+  "evaluation": {
+    "split_ratios_proposal": [
+      0.7,
+      0.15,
+      0.15
+    ],
+    "grouped": true,
+    "selection_metric": "val_map50_95",
+    "threshold_selection": "per_class_max_f1_on_val",
+    "ap_confidence_cutoff": 0.001,
+    "max_det": 300
+  },
+  "notes": "Resolve null fields, pin effective library settings and validate resources before execution; not a direct Ultralytics config.",
+  "hardware": {
+    "primary": "NVIDIA RTX 4070",
+    "vram_gb": null,
+    "fallback": "Google Colab GPU; inspect actual accelerator"
+  }
+}
