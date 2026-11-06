@@ -7,7 +7,7 @@
 | Этап | Статус | Evidence: пути/команды/результаты | Commit | Блокер / следующий шаг |
 |---|---|---|---|---|
 | S01 Каркас | done | Python 3.11.17 Linux: clean uv sync --locked; CLI help/version; ruff; 6 tests passed; подробности ниже | — | remote CI и Windows ещё не запускались; далее S02 |
-| S02 Аудит данных | blocked | reports/data/dataset-card.md; signverod-metadata-audit.json; воспроизводимый скрипт | см. коммит research: audit S02 dataset candidates and record blockers | сеть Roboflow/Kaggle; нет принятого экспорта ≥5 000 и визуального пилота |
+| S02 Аудит данных | blocked | reports/data/dataset-card.md; signverod-metadata-audit.json; kaggle-metadata-audit.json; два воспроизводимых скрипта | f10d848; продолжение см. запись ниже | Kaggle API доступен; storage.googleapis.com блокирует ZIP; нет принятого корпуса ≥5 000 и пилота |
 | S03 Импорт | todo | — | — | вход: принятый источник |
 | S04 QC и split | todo | — | — | вход: корпус и человеческий QC |
 | S05 Обучение | todo | — | — | вход: принятый split и GPU |
@@ -77,3 +77,46 @@
 - Изменения аудита коммитятся и отправляются в origin/work отдельным коммитом `research: audit S02 dataset candidates and record blockers`; данные и персональные образцы не включаются.
 
 - Проверки изменений S02: `ruff check .` — passed; `ruff format --check .` — 7 files formatted; `pytest` — 6 passed (0.15 s); `git diff --check` — passed. Изменён ignore `data/` на `/data/`, чтобы разрешить только агрегированные отчёты в reports/data/; исходный корпус по-прежнему исключён.
+
+
+## S02 — 06.11.2026, продолжение от f10d848
+
+- Поручение: продолжить только S02 в work, сначала проверить Roboflow/Kaggle,
+  по результату commit/push с автором chrtxachok <egormalanin425@gmail.com>.
+- Локальная ветка была на ab4a900; `git fetch origin work` и fast-forward на
+  FETCH_HEAD подтвердили f10d848. Прочитаны актуальные AGENTS.md, журнал и профильные документы.
+- Использована инструкция cloud-environment-runtime: проверены текущая readiness,
+  `/etc/codex/network-policy.json`, штатный proxy/TLS. Политика restricted/enforced,
+  Roboflow/Kaggle разрешены, secrets/outbound identities отсутствуют.
+- Сеть с разрешённым сетевым доступом исполнительной песочницы: Roboflow root API
+  200 JSON, project API без ключа 401, Universe root 403; Kaggle search/view/list 200.
+  Запросы внутри исходной песочницы сеть не имели; это ограничение запуска, не сервиса.
+- Проверены version-pinned download endpoints mirror v1 и SignverOD v15: 302 на
+  storage.googleapis.com. Переход mirror download дал proxy CONNECT 403; домена нет
+  в allowlist. Пользователю отправлен конкретный запрос открытия домена; ключи в чат не запрашивались.
+- Созданы scripts/audit_kaggle_metadata.py, tests/test_kaggle_audit.py,
+  reports/data/kaggle-metadata-audit.json; обновлены паспорт, README, docs/08 и docs/09.
+- Полные списки пяти кандидатов: 2 452 / 2 765 / 17 110 / 842 / 1 000 изображений.
+  Основной mirror v1 имеет Unknown и меньше 5 000; SignverOD v15 — CC0 по API.
+  В новом кандидате 16 000 RVL-CDIP не имеют целевых labels, 810 signatures и
+  300 stamps требуют проверки полноты обоих классов. Это не подтверждённые оригиналы.
+- Evidence: отчёт содержит номера версий, размеры view/list, SHA-256 всех ответов;
+  сырые API-ответы только в gitignored artifacts/data-audit/kaggle/inventory/.
+  List не поддерживает version pinning: view проверен до/после, ограничение раскрыто.
+- Реально исполнена команда полного сбора из раздела 5 паспорта; exit 0,
+  до конца пройдены все списки, totalBytes view совпали с суммой list.
+- Проверки: `UV_CACHE_DIR=/tmp/sealsign-uv uv sync --locked --python python3.12`
+  — успешно; Python 3.12.14 Linux CPU, uv 0.13.4. `.venv/bin/ruff check .` — passed;
+  `.venv/bin/ruff format --check .` — 9 files formatted;
+  `.venv/bin/pytest` — 10 passed (0.18 s); `git diff --check` — passed.
+  Новые tests проверяют повторные пути, пагинацию, смену версии и отличие счётчика
+  изображений от проверенных оригиналов; сеть в tests не используется.
+- Критерии S02 выполнены частично: установлены текущие API-версии/декларации лицензий
+  и состав файлов. Не выполнены: архив/checksum ZIP, проверенные права всех выбранных
+  источников, ≥5 000 пригодных уникальных страниц, визуальный пилот и оценка доразметки.
+  accepted_for_training=false. S03 и обучение не запускались, метрик модели нет.
+- Следующий шаг: разрешить storage.googleapis.com, загрузить version-pinned экспорты,
+  сохранить SHA-256, проверить README/YAML/условия компонентов нового составного
+  кандидата и первичные условия Sig & Stamps; выполнить совместный пилот до 200 страниц.
+- Git: коммит продолжения определяется сообщением
+  `research: continue S02 with public Kaggle inventories`; результат push сообщается в чате.

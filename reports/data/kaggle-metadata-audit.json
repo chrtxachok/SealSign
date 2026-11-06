@@ -1,0 +1,914 @@
+{
+  "observed_at_utc": "2026-11-06T07:20:33.648959+00:00",
+  "scope": "Public API metadata and complete listings; no image or label QC",
+  "datasets": [
+    {
+      "ref": "mertaslayilmaz/signature-stamp-segmentation-dataset",
+      "metadata_url": "https://www.kaggle.com/api/v1/datasets/view/mertaslayilmaz/signature-stamp-segmentation-dataset",
+      "version": 1,
+      "last_updated": "2025-07-22T08:36:49.407Z",
+      "license_name_from_api": "Unknown",
+      "metadata_total_bytes": 182376303,
+      "listing_complete": true,
+      "listing_version_note": "List endpoint is unversioned; view checked before and after",
+      "file_entries": 4905,
+      "listed_bytes": 182376303,
+      "image_entries": 2452,
+      "images_by_upstream_split": {
+        "test": 254,
+        "train": 1941,
+        "valid": 257
+      },
+      "images_by_directory": {
+        "signature_stamp_segmentation_dataset/test/images": 254,
+        "signature_stamp_segmentation_dataset/train/images": 1941,
+        "signature_stamp_segmentation_dataset/valid/images": 257
+      },
+      "distinct_image_name_prefixes_before_rf": 1045,
+      "original_pages_verified": false,
+      "deduplication_performed": false,
+      "accepted_for_training": false,
+      "evidence": [
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/view/mertaslayilmaz/signature-stamp-segmentation-dataset",
+          "raw_file": "view-before.json",
+          "sha256": "92f134695f9c7c00a1c5e4ba06896c5ed630396db20e1ebc2a0af330fb5c7bea"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/mertaslayilmaz/signature-stamp-segmentation-dataset",
+          "raw_file": "files-000.json",
+          "sha256": "2c2673a3106cdca52e13953cdbbb410de88ce4ebb394d9146db48c67037f67ea"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/mertaslayilmaz/signature-stamp-segmentation-dataset",
+          "raw_file": "files-001.json",
+          "sha256": "9dcc68deb61d449e2601080cf22046c5d13d0ec902dc6c6cd1e1fcd88d4719df"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/mertaslayilmaz/signature-stamp-segmentation-dataset",
+          "raw_file": "files-002.json",
+          "sha256": "af048045f9514943ccbf0b90e5890bc642e0a69b17cab697de4410adf6536a18"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/mertaslayilmaz/signature-stamp-segmentation-dataset",
+          "raw_file": "files-003.json",
+          "sha256": "bf50cfe645d46916aa992a8bb87280520f7efcbe21250a3ef63794950a8c1fcd"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/mertaslayilmaz/signature-stamp-segmentation-dataset",
+          "raw_file": "files-004.json",
+          "sha256": "33a031e61a4f0ca389162ea01adb7da31d6ea363d151bb3c99e6b6f86c41414c"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/mertaslayilmaz/signature-stamp-segmentation-dataset",
+          "raw_file": "files-005.json",
+          "sha256": "1f1817a51b52db34852568d5b86a09bafebd2d9ec0cd28f843f47e5ce706bc64"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/mertaslayilmaz/signature-stamp-segmentation-dataset",
+          "raw_file": "files-006.json",
+          "sha256": "02df508d55d880392bffa9f8904309c2bf4a6fe9901fac9d0400d3264d0a313f"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/mertaslayilmaz/signature-stamp-segmentation-dataset",
+          "raw_file": "files-007.json",
+          "sha256": "f2959636ab1711287a8964ba7d21a09787ad63b1761629326b03335e4e1b8dec"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/mertaslayilmaz/signature-stamp-segmentation-dataset",
+          "raw_file": "files-008.json",
+          "sha256": "87c2d5986e45c7ca9747fe2071877383be662479c09af09f0862c32780a74a3c"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/mertaslayilmaz/signature-stamp-segmentation-dataset",
+          "raw_file": "files-009.json",
+          "sha256": "d9b03460641d21a0ed98a09691b003d515365e9b6eff1dc15ce49928606b6fdd"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/mertaslayilmaz/signature-stamp-segmentation-dataset",
+          "raw_file": "files-010.json",
+          "sha256": "353e6f72d4f121af4573a2113db7b8e8c5eb63a383908680d7d9b74065f6fd3e"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/mertaslayilmaz/signature-stamp-segmentation-dataset",
+          "raw_file": "files-011.json",
+          "sha256": "42d466f686a1f3185828a3fa4571973e3ed5d404f854add360944a88b46b6890"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/mertaslayilmaz/signature-stamp-segmentation-dataset",
+          "raw_file": "files-012.json",
+          "sha256": "f1e64971ac76a9f926b1338c368b9f38d2e4cb5c569040dffdc094f9d14868b9"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/mertaslayilmaz/signature-stamp-segmentation-dataset",
+          "raw_file": "files-013.json",
+          "sha256": "06a9704c607ef6fb67c5ef6fc4179e7a6d72bd372897d1412ff356e4142ce443"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/mertaslayilmaz/signature-stamp-segmentation-dataset",
+          "raw_file": "files-014.json",
+          "sha256": "0a6eb1599984b79ad7f28434155ebbfba0fe150cee1c124f96c637015e788eb4"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/mertaslayilmaz/signature-stamp-segmentation-dataset",
+          "raw_file": "files-015.json",
+          "sha256": "16eb3dfd5851a6e1ca04c6315c7a0be426cc7930e41812df71e60432f266d6e3"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/mertaslayilmaz/signature-stamp-segmentation-dataset",
+          "raw_file": "files-016.json",
+          "sha256": "5176850422b975df0c44afe8258ade8277056980a7724e06bc7e6c59b71efdc7"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/mertaslayilmaz/signature-stamp-segmentation-dataset",
+          "raw_file": "files-017.json",
+          "sha256": "09ebaf74e1e3286cd9ac2fa4eff3208f8978a23894cfc85d37ecaf1f0142287b"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/mertaslayilmaz/signature-stamp-segmentation-dataset",
+          "raw_file": "files-018.json",
+          "sha256": "d7ca3555d6ff12499ef0856393b46897bdbc867f78c97c94b6e681aa9b71853c"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/mertaslayilmaz/signature-stamp-segmentation-dataset",
+          "raw_file": "files-019.json",
+          "sha256": "3dc93aa4e299b720428892969329c446c9de3f545f2926f67731a375a45f4912"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/mertaslayilmaz/signature-stamp-segmentation-dataset",
+          "raw_file": "files-020.json",
+          "sha256": "51a47fb30169f63366a540c199edd353c4558a7429ec26a4a322608b21199eb6"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/mertaslayilmaz/signature-stamp-segmentation-dataset",
+          "raw_file": "files-021.json",
+          "sha256": "199312fb03a24ffb41e85400a118d13a60a6e75f8d2dfcb7cef0fd8be7ee01d5"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/mertaslayilmaz/signature-stamp-segmentation-dataset",
+          "raw_file": "files-022.json",
+          "sha256": "974409913b93ea8932a1b90b9bfc51bf9594194e4151dd4abcb2cb23ecb44c30"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/mertaslayilmaz/signature-stamp-segmentation-dataset",
+          "raw_file": "files-023.json",
+          "sha256": "76230ffcbcefbd098f0af335125e554a6342e16a2db4a97ee1b44e4f291f0c1e"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/mertaslayilmaz/signature-stamp-segmentation-dataset",
+          "raw_file": "files-024.json",
+          "sha256": "34239a06a1f7cecc65914b36a42f9369b701e2a824c7af4fa67c156246fdf03c"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/view/mertaslayilmaz/signature-stamp-segmentation-dataset",
+          "raw_file": "view-after.json",
+          "sha256": "92f134695f9c7c00a1c5e4ba06896c5ed630396db20e1ebc2a0af330fb5c7bea"
+        }
+      ]
+    },
+    {
+      "ref": "victordibia/signverod",
+      "metadata_url": "https://www.kaggle.com/api/v1/datasets/view/victordibia/signverod",
+      "version": 15,
+      "last_updated": "2022-03-21T02:25:50.733Z",
+      "license_name_from_api": "CC0: Public Domain",
+      "metadata_total_bytes": 1597426836,
+      "listing_complete": true,
+      "listing_version_note": "List endpoint is unversioned; view checked before and after",
+      "file_entries": 2778,
+      "listed_bytes": 1597426836,
+      "image_entries": 2765,
+      "images_by_upstream_split": {
+        "unspecified": 2765
+      },
+      "images_by_directory": {
+        "images": 2765
+      },
+      "distinct_image_name_prefixes_before_rf": 2765,
+      "original_pages_verified": false,
+      "deduplication_performed": false,
+      "accepted_for_training": false,
+      "evidence": [
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/view/victordibia/signverod",
+          "raw_file": "view-before.json",
+          "sha256": "6023659de0e342546601890da97902e37a0a7dc56336ddb4c2b6eaeeef4bbd84"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/victordibia/signverod",
+          "raw_file": "files-000.json",
+          "sha256": "5e0aed81b9117d048ede673d2d7616e49cf2a3b1f727c7d2dcbb5b989eae43c1"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/victordibia/signverod",
+          "raw_file": "files-001.json",
+          "sha256": "93acd272f8d489a36d2c77a85e2378467933009f9cf2c7bc84dd5684389a1b66"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/victordibia/signverod",
+          "raw_file": "files-002.json",
+          "sha256": "d896e981baed5b4247efe79297a4b5c5d7501ff849ce6080e0579e645d51ba9e"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/victordibia/signverod",
+          "raw_file": "files-003.json",
+          "sha256": "43dd08d7d446c5618d03049980d0fc0e9acdddeaff827bb3eb3548a03e82d034"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/victordibia/signverod",
+          "raw_file": "files-004.json",
+          "sha256": "c5ce15e1e14c638e78b4f14754f00aaef1bd2e2aee9b095ac7a49d8597140ff4"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/victordibia/signverod",
+          "raw_file": "files-005.json",
+          "sha256": "15224c622bc0a981d3a19d7e8c6fafb1ef75f794bdecffab8ed59a8d644f24f9"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/victordibia/signverod",
+          "raw_file": "files-006.json",
+          "sha256": "1bb65aa0adb214663d91de8626442c29c7d4e3b63faf059aac279388e0a83d16"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/victordibia/signverod",
+          "raw_file": "files-007.json",
+          "sha256": "17813a470ba85e7a85a37dc688486e32ce3760d0873111ba794026dedaee8668"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/victordibia/signverod",
+          "raw_file": "files-008.json",
+          "sha256": "874c53ad55643bd2db01141defced853182bc5eda2e520998c4ad07733adbd5a"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/victordibia/signverod",
+          "raw_file": "files-009.json",
+          "sha256": "d2ab758fe607d5a2aa922c7db890af0cbd3495d040eab6a31dd1fe4b0771bdc1"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/victordibia/signverod",
+          "raw_file": "files-010.json",
+          "sha256": "dc66d1a33ceb859b72c19a04aca779d043708816b9006106c4e8a40974bd691b"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/victordibia/signverod",
+          "raw_file": "files-011.json",
+          "sha256": "f13dd66c41e1915bf6dd353a445a5299b4a049d42604c8e339b7d0b00bd744b6"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/victordibia/signverod",
+          "raw_file": "files-012.json",
+          "sha256": "6aac13488b9225a4bc824cb950f26bb955426ab01b5f57cd9bf40b7c43311ad6"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/victordibia/signverod",
+          "raw_file": "files-013.json",
+          "sha256": "685907feaacd102de91d9c420be6208470ccc1ea1b46d8ac4f4ab7f008679ad3"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/view/victordibia/signverod",
+          "raw_file": "view-after.json",
+          "sha256": "6023659de0e342546601890da97902e37a0a7dc56336ddb4c2b6eaeeef4bbd84"
+        }
+      ]
+    },
+    {
+      "ref": "zeadekrame/document-signature-stamp-detection",
+      "metadata_url": "https://www.kaggle.com/api/v1/datasets/view/zeadekrame/document-signature-stamp-detection",
+      "version": 1,
+      "last_updated": "2026-03-24T02:26:40.817Z",
+      "license_name_from_api": "CC BY-NC-SA 4.0",
+      "metadata_total_bytes": 2179225436,
+      "listing_complete": true,
+      "listing_version_note": "List endpoint is unversioned; view checked before and after",
+      "file_entries": 18228,
+      "listed_bytes": 2179225436,
+      "image_entries": 17110,
+      "images_by_upstream_split": {
+        "test": 81,
+        "train": 888,
+        "unspecified": 16000,
+        "val": 60,
+        "valid": 81
+      },
+      "images_by_directory": {
+        "rvl_cdip/advertisement": 1000,
+        "rvl_cdip/budget": 1000,
+        "rvl_cdip/email": 1000,
+        "rvl_cdip/file_folder": 1000,
+        "rvl_cdip/form": 1000,
+        "rvl_cdip/handwritten": 1000,
+        "rvl_cdip/invoice": 1000,
+        "rvl_cdip/letter": 1000,
+        "rvl_cdip/memo": 1000,
+        "rvl_cdip/news_article": 1000,
+        "rvl_cdip/presentation": 1000,
+        "rvl_cdip/questionnaire": 1000,
+        "rvl_cdip/resume": 1000,
+        "rvl_cdip/scientific_publication": 1000,
+        "rvl_cdip/scientific_report": 1000,
+        "rvl_cdip/specification": 1000,
+        "signatures/test/images": 81,
+        "signatures/train/images": 648,
+        "signatures/valid/images": 81,
+        "stamps/train/images": 240,
+        "stamps/val/images": 60
+      },
+      "distinct_image_name_prefixes_before_rf": 17110,
+      "original_pages_verified": false,
+      "deduplication_performed": false,
+      "accepted_for_training": false,
+      "evidence": [
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/view/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "view-before.json",
+          "sha256": "c46f73a8b42bb083ddf5c432dc1293371b89edb448591ee06d6da3f08c59a4be"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-000.json",
+          "sha256": "4bf4baecea60e68558677ee83f05c69b1108d044038aedf6a10a9590bc96bfa8"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-001.json",
+          "sha256": "a98ebc57c25a05694677d450a3cc9429f37460a711b922d7e3f078dcd6bafcd4"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-002.json",
+          "sha256": "258a5d79de4b7a6f74cae7dbc5dc7dd46e7823d0851202d50df9eead7dcd0bce"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-003.json",
+          "sha256": "64061fb17cb40fa2b15b189d4948cd72b179e620e625c5b5a3e68ea764e2a5ed"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-004.json",
+          "sha256": "2b639a3aaae45f9acae7a7e3d4ad165363b8d4d2108ef8b5db0e14e20370303b"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-005.json",
+          "sha256": "99032c9c032ad6e189bcebb22593273fc3f0e41e223d80a8c85b848bcf495fbd"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-006.json",
+          "sha256": "4b7cb9b6b0f0ced23ea6011e18e2d62b7a59bb3c4cbfc3ad56f0a047958c2ce5"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-007.json",
+          "sha256": "59c292fad04aa5a567aaba77f8b83f045ebb9871482238723c73621183886d5e"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-008.json",
+          "sha256": "ec30cebadb424b35352614df33afff79c09dcc600280b138b4835225e6cfd94d"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-009.json",
+          "sha256": "8c835381b77de5ddf46badd64d3f353e3b38660a584cf9ae62529db586871a63"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-010.json",
+          "sha256": "6136bb62ad8eb8eea5534b9e2b57f5e589eaf828b129d7bf9e4de86dc5326f44"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-011.json",
+          "sha256": "9e657f28a792180a54553b001955fd340a3fbdb0ea59cb2e19f2520ec7a61647"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-012.json",
+          "sha256": "f1c1e0e42cff6a3f8fd22782294544dd2369948c33eea83d07a36db8e951f19e"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-013.json",
+          "sha256": "5d3f51660e4723ecd87714087574807b1f4c7fd424bb4849e05fc45b1b9611ed"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-014.json",
+          "sha256": "4a4d64b8891ae533f99871b3d45d8b8b6de497fecfe7a8e03b3654c2e009bde2"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-015.json",
+          "sha256": "c15e4fc4f80bf82da9f79ed3ecfdff3676cdbf039fc669840947cb22fbbff4d2"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-016.json",
+          "sha256": "ea570a39317229e44871425993fedfb47febfc9e6389ca97b476e645edb47b91"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-017.json",
+          "sha256": "bef07e31d90e4767a7e0e199f96037d138ddcfbdc762794edba3f5d4820699dc"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-018.json",
+          "sha256": "178870387789d9b165daa9fc2f3e1497e3957cbf1ea511a4a7cfa6e8fe5828ee"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-019.json",
+          "sha256": "4992d08688931a0ecd30b67856be9cdcfd79fbcb95572f2e9c7b51172e80bbd5"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-020.json",
+          "sha256": "2926efba28f6c19d58a27698c72713f9e05f79777dbf6f7d9f4d82d7e2da8c62"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-021.json",
+          "sha256": "0d96986a9b32915e7fbdd107f985944e6f264a7d76e292a43613bed9d6f52b61"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-022.json",
+          "sha256": "18002c70c9c4cb9196b7a655ca6f0cdab8f4f3d03ef39cd4a1ad9ea236fb9fec"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-023.json",
+          "sha256": "655b5b0d737572bbd9a41eb3c8551a5111edaf2f8a77b0cd5310bcf3c64afdc0"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-024.json",
+          "sha256": "35078c864efea37d71872c3e016105e51685fd96b2cc3b2d24124f5a2e243304"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-025.json",
+          "sha256": "145514a51d5542826301cc367a8f3e977fd5d7705d371a08fc4651419ec584a6"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-026.json",
+          "sha256": "5259f38a49af89289744dd7232f8cb20b1d95ff358cf292832408b1cb8b8d928"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-027.json",
+          "sha256": "daa6bbc7e7e4aebb3bfef20e04b7511f2c0ec06e4b769b64627eb0f4b0ba1710"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-028.json",
+          "sha256": "517c66b998485df66527701ce5553e702534dcc61dd9030c9bdff9dc3dde3f46"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-029.json",
+          "sha256": "2d40afb05d0e5b1917cd2176305833e2e9013e7772765dc9f34722d1b4247bcc"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-030.json",
+          "sha256": "4f08e94983847fe31677eec54ed491d67d47fc94bc087d148556971f61ac08ca"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-031.json",
+          "sha256": "d889d5d4764ae7e6447e3515a38ec51b6e7eb560d3e02daedb03648ec54b4d3b"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-032.json",
+          "sha256": "e897a05f84b4cc32733041060c6b06e0f02d588e20d8668fce5e737bb793bf8f"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-033.json",
+          "sha256": "4130c19bf63be30b45513c2d5e5dd8aeb13b3c99eded10bcc37b2524305b9993"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-034.json",
+          "sha256": "9505756515b2b1a80d41ebe402f76b7bef68f57ddc7c8f914835447a1071108a"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-035.json",
+          "sha256": "7d81b43f54fa4245264186351286a337aee013995a1ed55deb20a3eac11f15c4"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-036.json",
+          "sha256": "3e688f951cd25323ae340e761d7e14c4c130584a607d72c9a44c93d105ebb71c"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-037.json",
+          "sha256": "5bf070c295322bafc1ffe39c3be10a13cb525f548ff156d0ea40edd79bec8115"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-038.json",
+          "sha256": "47f330af854caad503578e3aa6dfae82f0b36f124f78131ebb1517b18836a127"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-039.json",
+          "sha256": "2d1b52741ad4afd783224a117337ed4812f3b99908a49a5f7e1aaddc571ea1b0"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-040.json",
+          "sha256": "7d2478982e4b39346de89442e39c1222f2ab83770d37550fdf912a9d69037b0d"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-041.json",
+          "sha256": "6adf5f7dd013ef44378c47ada98f470941dd0899a2d17a7cca83c6200f764d48"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-042.json",
+          "sha256": "145fa40c31b525417e31ec707207236e71a24a2da5187aea209fdc07dd71f0c7"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-043.json",
+          "sha256": "03913d91d7866d28d2636b4b1232bf394d3e3add4c3b52da75afcc94e87ae166"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-044.json",
+          "sha256": "b3f873fcdb895c09b65f8bf38325266cb66cb877c41609205640011c8bad203e"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-045.json",
+          "sha256": "259b79b6530254f648a1ff59e2dfe0a911a78f3608cc8aee2865065f63efc952"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-046.json",
+          "sha256": "97c5c883a2c9ca25f4c76d718bdb45a88530938e1ab718c75dd9653957c96697"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-047.json",
+          "sha256": "cddac056f296972c5500bcb04186372c24fe00a2ebf3e32eb528982d9655f69a"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-048.json",
+          "sha256": "dce014560a7888d2ced8e95ea8d29957fd46975c07fd0125f888380163843a22"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-049.json",
+          "sha256": "4a9d5490b2047287dc0f58a79767e6c3caafcf0d355bfb018fb1638c4bce3a5a"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-050.json",
+          "sha256": "fc2d5d9ca9292f4c5a877c61e89fdc26fc544780660a31d4fd3fb7b9995315f5"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-051.json",
+          "sha256": "e4b57c32134ec7fc01a75e5a183b33dcf4623e6c138b8b7fa1b2d3b9c8e80498"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-052.json",
+          "sha256": "3339003667b68a57c462b2e4ee38a7ce4a7daa65886d56d3991678892f7b6458"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-053.json",
+          "sha256": "87dbfde82dc965bc88ffc28d0828ad54708e70051f12ec5aba44508e8409441a"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-054.json",
+          "sha256": "dc03d5be1a57afe486c815891531fdf1858e94a97e7098560e7b22d7cc899428"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-055.json",
+          "sha256": "61170ee30367a10bc2182ef7e0b0956d53d854d652b1b4b3c34cd37d96f004fc"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-056.json",
+          "sha256": "054372a3c3897f3d9ecc71a045f99da34e0245021134dc3f9c395beba6044b37"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-057.json",
+          "sha256": "9b39f100a5923d87961f9835bf47ba23870a924f9ca7d57d8ef984e173a61dbd"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-058.json",
+          "sha256": "81eeda66faaf7543711af2ab37ffbf04f645aced5cc826125d43142a9b3bc509"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-059.json",
+          "sha256": "d288a0427691267652750eb2068cdb4a1f3b16431f80b9f6e0a0a276d0cbbc59"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-060.json",
+          "sha256": "e3678acb7f5645bf083b9335302e69330bfcf5d4f3f26da25f9d1e5145863793"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-061.json",
+          "sha256": "08b0235fff0fc5b38c85ef0fde2f811e082cf9c9a129027c6072a5371ac5d2f6"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-062.json",
+          "sha256": "1b0368a3e1b35883de93ff219cc23b79bab6aa5cb67bb2c1d2d76ed63fb2a726"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-063.json",
+          "sha256": "22a2496524648d57f79fb4cf4d39b9ed7d2281787b26a3bfc3253e67d607c20d"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-064.json",
+          "sha256": "5f23eeb334b167710f0dd00fa690b9641b5cdaef8ca1384614cad842d4ba75ab"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-065.json",
+          "sha256": "58a60f9adb0c853d2b83a7275fabe167d1c149a0c718c49ace52b54f56300df9"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-066.json",
+          "sha256": "621db12ee523387488d0e1bb7f8073879447e40faab76c7ed56641f011f762e5"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-067.json",
+          "sha256": "bd8cc62041f0f119960b87363c548bc6f054a992ae795d36e7fb96611f174ff8"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-068.json",
+          "sha256": "84f25f80a0312bab40bc954f45853774461b24a5d11bfcd398635c423bd085ab"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-069.json",
+          "sha256": "c6a2904b6bc12a45925b6a385a48a1071fad5e2c3802d4feed3cbb828b761005"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-070.json",
+          "sha256": "abe5717c6f96a0d28a544dc7db2461867cca831f7f169848b1a0a7521052002a"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-071.json",
+          "sha256": "146a59f4e0d82bf3d42ff468004966bbe0090a38362970633e24f7f8a92ca636"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-072.json",
+          "sha256": "764fdf0b91dfc767d225abb3bd232943c2ab32068b0e23dd2cb1abae8cecf244"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-073.json",
+          "sha256": "5d346a9367b1a758a55c34f2161f89c2101cfe14f3a2892caba8be3de98e39ed"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-074.json",
+          "sha256": "7a2f7d70e980369e57e3d250808ab8fa47bf37af86fa969c4a9864b71918e535"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-075.json",
+          "sha256": "f4299f9cc63df586c31f98567c1aa1dafe831d90427b76e43fdbca5c8d9da5bb"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-076.json",
+          "sha256": "c4baa792f22de427df0d6c473851c1174fa2d622840f69e5e98fc4d874d2ad9d"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-077.json",
+          "sha256": "b28463a35e0b3a791f03dd67a8f28a5b2886f8af67373a4789b8b3fb467c81ea"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-078.json",
+          "sha256": "b95f319e66a4ebc6567935d0d81110a87a9b186199cfd161e8be3d8dff8d80ed"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-079.json",
+          "sha256": "f2255dde7282e7d6f2e483df0afc0d3af25797130b6fcd85b6b8c7f8e838d481"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-080.json",
+          "sha256": "a6ad0eb72e83878de1c6f63bb99f0cb99b0a29921e44389e7090de98f5f0dbd9"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-081.json",
+          "sha256": "e0ffb169fe4615fc389c369d55cdcc4b1b82547f662df1dd422ce00f9c7ee83d"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-082.json",
+          "sha256": "cef32fa342104784ef7dac5b9c0998526217a3908c6377ac20ab1ee65fe5b131"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-083.json",
+          "sha256": "2920980339ec02802168e4b8c935041fc5125f9ed72af35dd472f8f917bcb85e"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-084.json",
+          "sha256": "b46212393da2e6e2857d71827f5db5ec5754eceb3f7a5f2c20e74384829b49d1"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-085.json",
+          "sha256": "c73ad1153577979274d5a4b27a612f19c849c7f44006e509bb5dc6278e276212"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-086.json",
+          "sha256": "680b604fe1fed37238717dff42b349742063e7de3bf3ec71f195a2b703730326"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-087.json",
+          "sha256": "cc15087f39bffcde9a5074d0262182875fc96ced4a863fdd12acc1c16135e6ed"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-088.json",
+          "sha256": "aad30c63aeaa3ce0fdf8ef3dc9d0a7d123363e2ca91dde3df86a868c1be716ab"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-089.json",
+          "sha256": "c93deeebd8a135737cdd7bfbc05e221a9f4ff120b2a0847668d205a630789b51"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-090.json",
+          "sha256": "d9c7d4e784aad95328d4c09ac73b30f073e7e49db61c97fdcdc89c4d17dc4825"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "files-091.json",
+          "sha256": "5a9b7ec0bbd7a8732ae2f294a81c5f9a53c0f8245644d62201b7b009dd4edd83"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/view/zeadekrame/document-signature-stamp-detection",
+          "raw_file": "view-after.json",
+          "sha256": "c46f73a8b42bb083ddf5c432dc1293371b89edb448591ee06d6da3f08c59a4be"
+        }
+      ]
+    },
+    {
+      "ref": "azharhasannsaif/arabic-official-documents",
+      "metadata_url": "https://www.kaggle.com/api/v1/datasets/view/azharhasannsaif/arabic-official-documents",
+      "version": 1,
+      "last_updated": "2026-06-07T20:21:12.52Z",
+      "license_name_from_api": "Attribution 4.0 International (CC BY 4.0)",
+      "metadata_total_bytes": 782090884,
+      "listing_complete": true,
+      "listing_version_note": "List endpoint is unversioned; view checked before and after",
+      "file_entries": 842,
+      "listed_bytes": 782090884,
+      "image_entries": 842,
+      "images_by_upstream_split": {
+        "unspecified": 842
+      },
+      "images_by_directory": {
+        ".": 842
+      },
+      "distinct_image_name_prefixes_before_rf": 842,
+      "original_pages_verified": false,
+      "deduplication_performed": false,
+      "accepted_for_training": false,
+      "evidence": [
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/view/azharhasannsaif/arabic-official-documents",
+          "raw_file": "view-before.json",
+          "sha256": "5c1143c6269757f9fa9ead9e9ee270c09cfd75bf16952d7d515f44ca2bf4f610"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/azharhasannsaif/arabic-official-documents",
+          "raw_file": "files-000.json",
+          "sha256": "df110e4741a981a1a9d5c4433c1910f2cd3de3b4540ff6716ea9368b8e5271d7"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/azharhasannsaif/arabic-official-documents",
+          "raw_file": "files-001.json",
+          "sha256": "7a84e4024d985254fb7747fb29f1930296b0766ced715b16530e3357efc4e018"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/azharhasannsaif/arabic-official-documents",
+          "raw_file": "files-002.json",
+          "sha256": "d8d8d546a24b2589c32c266c7269c767d3643a1ac360489168f86c652266684c"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/azharhasannsaif/arabic-official-documents",
+          "raw_file": "files-003.json",
+          "sha256": "93707478da6f6c444bd36141fe8f4b9a01c65545437b22133701f02d0304eee5"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/azharhasannsaif/arabic-official-documents",
+          "raw_file": "files-004.json",
+          "sha256": "6e3c510f2d14610237421d06d067c8843e84766c6a4c475ebf89d82dd5d027db"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/view/azharhasannsaif/arabic-official-documents",
+          "raw_file": "view-after.json",
+          "sha256": "5c1143c6269757f9fa9ead9e9ee270c09cfd75bf16952d7d515f44ca2bf4f610"
+        }
+      ]
+    },
+    {
+      "ref": "igorkarayman/signatures-and-stamps",
+      "metadata_url": "https://www.kaggle.com/api/v1/datasets/view/igorkarayman/signatures-and-stamps",
+      "version": 1,
+      "last_updated": "2023-09-06T08:16:27.797Z",
+      "license_name_from_api": "Unknown",
+      "metadata_total_bytes": 546187901,
+      "listing_complete": true,
+      "listing_version_note": "List endpoint is unversioned; view checked before and after",
+      "file_entries": 1000,
+      "listed_bytes": 546187901,
+      "image_entries": 1000,
+      "images_by_upstream_split": {
+        "unspecified": 1000
+      },
+      "images_by_directory": {
+        "1": 1000
+      },
+      "distinct_image_name_prefixes_before_rf": 1000,
+      "original_pages_verified": false,
+      "deduplication_performed": false,
+      "accepted_for_training": false,
+      "evidence": [
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/view/igorkarayman/signatures-and-stamps",
+          "raw_file": "view-before.json",
+          "sha256": "27977359cafdddc75ebf88e0797f0b34d5d39b25308841e6f3d6c19d79248f0c"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/igorkarayman/signatures-and-stamps",
+          "raw_file": "files-000.json",
+          "sha256": "90c92a4027e1d589f01f2197732fa86e588ec04efb1f062fffe4c1e557af939c"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/igorkarayman/signatures-and-stamps",
+          "raw_file": "files-001.json",
+          "sha256": "7b8b7d61b4305f742934816f9a97ed7890dc3e7d0447127e5dbe32aad61f5181"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/igorkarayman/signatures-and-stamps",
+          "raw_file": "files-002.json",
+          "sha256": "9246be4427e07cbd2b85607ad06b04c4911842383b775def8c5e7b73fccbcc98"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/igorkarayman/signatures-and-stamps",
+          "raw_file": "files-003.json",
+          "sha256": "8e47109db1a8866e9fd9e95b21baa424d5e1b5663c687746194fed86f3f74df9"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/igorkarayman/signatures-and-stamps",
+          "raw_file": "files-004.json",
+          "sha256": "37569b96cee04218eae0bebee77f481551c46f1575a53e985bb49b36d5d2b0cc"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/view/igorkarayman/signatures-and-stamps",
+          "raw_file": "view-after.json",
+          "sha256": "27977359cafdddc75ebf88e0797f0b34d5d39b25308841e6f3d6c19d79248f0c"
+        }
+      ]
+    }
+  ]
+}
