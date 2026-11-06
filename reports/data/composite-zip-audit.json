@@ -1,0 +1,63 @@
+{
+  "archive": "document-signature-stamp-detection-v1.zip",
+  "bytes": 1989701019,
+  "sha256": "ed41b57f00a2d91ce218fcc7f333fd70300c67f9b0d926ffc7c206d62d156594",
+  "zip_crc_all_members_verified": true,
+  "components": {
+    "rvl_cdip": {
+      "images": 16000,
+      "label_files": 0,
+      "label_rows_by_source_class": {},
+      "label_row_token_counts": {},
+      "empty_labels": 0,
+      "exact_duplicate_hash_groups_crossing_upstream_splits": 0,
+      "distinct_image_sha256": 15980,
+      "extra_exact_copies": 20
+    },
+    "signatures": {
+      "images": 810,
+      "label_files": 810,
+      "label_rows_by_source_class": {
+        "0": 4148
+      },
+      "label_row_token_counts": {
+        "5": 4148
+      },
+      "empty_labels": 56,
+      "exact_duplicate_hash_groups_crossing_upstream_splits": 0,
+      "distinct_image_sha256": 810,
+      "extra_exact_copies": 0
+    },
+    "stamps": {
+      "images": 300,
+      "label_files": 300,
+      "label_rows_by_source_class": {
+        "0": 486
+      },
+      "label_row_token_counts": {
+        "5": 486
+      },
+      "empty_labels": 0,
+      "exact_duplicate_hash_groups_crossing_upstream_splits": 3,
+      "distinct_image_sha256": 285,
+      "extra_exact_copies": 15
+    }
+  },
+  "distinct_image_sha256_global": 17075,
+  "text_evidence": [
+    {
+      "path": "signatures/data.yaml",
+      "bytes": 295,
+      "sha256": "54f836c912f58b25bd31de947726128d3c73ef460b92e8a870e7d5f2e733467f"
+    },
+    {
+      "path": "stamps/data.yaml",
+      "bytes": 71,
+      "sha256": "8471bfcb6320c5a744239f95426a7281e938b6da482a4175d642654a34ecc759"
+    }
+  ],
+  "original_pages_verified": false,
+  "images_decoded": false,
+  "visual_qc_performed": false,
+  "accepted_for_training": false
+}

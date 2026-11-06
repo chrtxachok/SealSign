@@ -7,7 +7,7 @@
 | Этап | Статус | Evidence: пути/команды/результаты | Commit | Блокер / следующий шаг |
 |---|---|---|---|---|
 | S01 Каркас | done | Python 3.11.17 Linux: clean uv sync --locked; CLI help/version; ruff; 6 tests passed; подробности ниже | — | remote CI и Windows ещё не запускались; далее S02 |
-| S02 Аудит данных | blocked | reports/data/dataset-card.md; signverod-metadata-audit.json; kaggle-metadata-audit.json; два воспроизводимых скрипта | f10d848; продолжение см. запись ниже | Kaggle API доступен; storage.googleapis.com блокирует ZIP; нет принятого корпуса ≥5 000 и пилота |
+| S02 Аудит данных | blocked | reports/data/dataset-card.md; signverod-metadata-audit.json; kaggle-metadata-audit.json; два воспроизводимых скрипта | f10d848; продолжение см. запись ниже | Два ZIP v1 получены, CRC/SHA-256 проверены; нет принятого корпуса ≥5 000, прав всех компонентов и пилота |
 | S03 Импорт | todo | — | — | вход: принятый источник |
 | S04 QC и split | todo | — | — | вход: корпус и человеческий QC |
 | S05 Обучение | todo | — | — | вход: принятый split и GPU |
@@ -120,3 +120,49 @@
   кандидата и первичные условия Sig & Stamps; выполнить совместный пилот до 200 страниц.
 - Git: коммит продолжения определяется сообщением
   `research: continue S02 with public Kaggle inventories`; результат push сообщается в чате.
+
+
+## S02 — 06.11.2026, проверка реальных ZIP
+
+- Поручение пользователя: продолжить S02, проверить доступ, commit/push в work.
+- После fetch актуальная origin/work оказалась на e8895aa поверх f10d848;
+  выполнен fast-forward, существующие результаты сохранены. AGENTS.md, журнал,
+  README, docs/00, docs/08, docs/09, docs/11 и профильный docs/03 прочитаны.
+- Сеть: текущая политика restricted/enforced разрешает Roboflow/Kaggle и
+  storage.googleapis.com. API Roboflow root 200, Universe project 403,
+  Kaggle search 200. После разрешения сети исполнительной песочницы загрузки работают;
+  штатные proxy/TLS сохранены, секреты не настроены.
+- Получены version-pinned ZIP Sig & Stamps v1 (169 435 546 байт) и составного
+  zeadekrame v1 (1 989 701 019 байт). SHA-256, команды, YAML evidence и результаты
+  — раздел 6 reports/data/dataset-card.md, sig-stamps-zip-audit.json,
+  composite-zip-audit.json. ZIP/изображения только в gitignored artifacts/.
+- scripts/audit_dataset_zip.py проверяет CRC всех членов без распаковки,
+  считает SHA-256 изображений, дубли, пересечения исходных split и строки labels;
+  отклоняет небезопасные/повторные пути, symlink и превышение бюджета.
+  Это аудит байтов и структуры, не importer, декодер или геометрический validator.
+- Sig & Stamps: 2 452 различных байтовых изображения, 5 265 строк, 16 пустых labels.
+  YAML 0=signature/1=stamp требует обратного mapping; polygon rows нельзя
+  интерпретировать как готовые bbox. Лицензия Unknown; минимум 5 000 не выполнен.
+- Составной набор: 17 110 изображений, 17 075 разных SHA-256. 16 000 RVL-CDIP
+  не имеют целевых labels; 810 signatures дают 4 148 строк и 56 пустых labels;
+  300 stamps дают 486 строк и 285 разных SHA-256. В stamps 3 группы exact-дублей
+  пересекают train/val. Такой split не принимать без перегруппировки.
+- В YAML signatures есть декларация CC BY 4.0 и Roboflow v1; у stamps отсутствуют
+  источник/лицензия. Декларация лицензии сборки не устанавливает права компонентов.
+  Mapping signatures 0→1, stamps 0→0: source class ID без provenance неоднозначен.
+- Критерии S02: реальные экспорты/checksum/CRC и структурные counts получены.
+  Не выполнены: подтверждённые права всех компонентов, ≥5 000 пригодных оригиналов,
+  визуальный совместный пилот и оценка доразметки. accepted_for_training=false;
+  S02 blocked. Декодирование, S03 и обучение не запускались, метрик модели нет.
+- Следующий шаг: первичные условия signatures, provenance/условия stamps и RVL-CDIP;
+  затем декодирование/near duplicates и совместный воспроизводимый пилот до 200 страниц.
+- Git: коммит шага определяется сообщением `research: audit downloaded S02 dataset archives`;
+  push в origin/work выполняется по поручению пользователя, автор chrtxachok
+  <egormalanin425@gmail.com>. Данные, secrets и приватные примеры не включаются.
+- Проверки: Python 3.12.14 Linux CPU; `UV_CACHE_DIR=/tmp/sealsign-uv uv sync --locked --python python3.12`
+  успешно; обе команды ZIP-аудита из паспорта завершились exit 0.
+  `.venv/bin/ruff check .` — passed; `.venv/bin/ruff format --check .` — 11 files formatted;
+  `.venv/bin/pytest -q` — 16 passed (0.26 s); `git diff --check` — passed.
+  Новые тесты: CRC повреждённого ZIP, опасные пути/symlink, обнаружение exact leakage,
+  различие пустых labels/непроверенных страниц и подтверждённых negatives.
+  `git check-ignore` подтвердил исключение ZIP из Git; GPU/модель не проверялись.

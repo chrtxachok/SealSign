@@ -3,7 +3,7 @@
 Дата: 06.11.2026. **Статус: blocked; обучающий корпус ещё не принят.**
 Обязательный минимум: 5 000 уникальных исходных страниц. YAT-19 исключён.
 Это результаты проверки доступных метаданных, не завершённый визуальный аудит изображений.
-Актуальное продолжение после открытия Roboflow/Kaggle — раздел 5; сетевые ограничения ниже относятся к первоначальной проверке.
+Актуальное продолжение с реальным ZIP — раздел 6; сетевые ограничения ниже относятся к первоначальной проверке.
 
 ## 1. Sig & Stamps — приоритетный кандидат
 
@@ -186,3 +186,102 @@ version-pinned экспорты и SHA-256, начать с README/YAML/лице
 составного кандидата; параллельно установить первичные условия Sig & Stamps.
 S02 остаётся blocked: нет принятого корпуса ≥5 000, подтверждённых условий всех
 выбранных компонентов и совместного визуального пилота.
+
+
+## 6. Реальный экспорт Kaggle и проверка ZIP — 06.11.2026
+
+Повторная проверка: Roboflow root API 200 JSON, карточка Universe 403;
+публичный Kaggle search 200. В текущей политике restricted/enforced разрешён
+также storage.googleapis.com. Экспорт Sig & Stamps получен через штатный proxy/TLS
+без аккаунта; прежний блокер скачивания этого ZIP снят. Секреты не настроены.
+
+Загрузка зафиксированной версии:
+
+```console
+curl --fail --location --max-time 120 --silent --show-error 'https://www.kaggle.com/api/v1/datasets/download/mertaslayilmaz/signature-stamp-segmentation-dataset?datasetVersionNumber=1' -o artifacts/data-audit/exports/signature-stamp-segmentation-dataset-v1.zip
+python scripts/audit_dataset_zip.py artifacts/data-audit/exports/signature-stamp-segmentation-dataset-v1.zip --output reports/data/sig-stamps-zip-audit.json
+```
+
+Каталог назначения предварительно создан через `mkdir -p artifacts/data-audit/exports`.
+Подписанный redirect URL в Git не сохраняется. ZIP и исходные документы остаются
+в игнорируемом artifacts/. Evidence: [sig-stamps-zip-audit.json](sig-stamps-zip-audit.json).
+
+- ZIP: 169 435 546 байт, SHA-256
+  `f5719c8acb7dcf903b84c3ca0f68fe5523031e809b514d1c8f32493e4bbc6617`.
+- Все члены прочитаны с проверкой CRC; распаковка не выполнялась.
+- 2 452 изображения, 2 452 различных SHA-256, побайтовых копий нет.
+  Это не проверка near duplicates/аугментаций и не число исходных страниц.
+- 2 452 файла labels, из них 16 пустых. Пустота не подтверждает reviewed_empty.
+- 5 265 строк: исходный класс 0 — 3 431, класс 1 — 1 834.
+  `data.yaml` определяет `names: ["signature", "stamp"]`, `nc: 2`.
+  Для SealSign необходимо **0→1, 1→0**. Эти counts относятся к строкам экспорта,
+  не к визуально подтверждённым объектам.
+- Строки имеют от 11 до 339 токенов (не фиксированные 5 для bbox YOLO).
+  Нельзя читать их как готовые cx/cy/w/h: требуется проверка polygon-геометрии
+  и отдельное получение охватывающих рамок на S03.
+- YAML содержит абсолютные Kaggle-пути: они не являются переносимой конфигурацией
+  SealSign. В ZIP не найден README/Markdown или файл с license в имени;
+  декларация лицензии зеркала остаётся Unknown. Нельзя вывести лицензию из YAML.
+
+Скрипт использует standard library, не извлекает файлы, отклоняет небезопасные/
+повторные пути и symlink, ограничивает общий распакованный объём 20 GiB и текстовый
+член 4 MiB. Повреждённый CRC прекращает аудит; отчёт публикуется только после
+успешного чтения. Скрипт не декодирует изображения, не проверяет координаты и
+не разрешает обучение. Тесты покрывают CRC, опасные пути и отличие дублей/пустых
+labels от подтверждённых оригиналов/negatives.
+
+**Решение:** Sig & Stamps v1 не принимать единственным корпусом: верхний предел
+2 452 меньше обязательных 5 000, права и визуальная полнота не подтверждены.
+S02 остаётся blocked до выбора допустимого корпуса ≥5 000 и совместного пилота.
+
+### Составной кандидат: проверка полного архива
+
+Получен `zeadekrame/document-signature-stamp-detection` v1 по endpoint
+`https://www.kaggle.com/api/v1/datasets/download/zeadekrame/document-signature-stamp-detection?datasetVersionNumber=1`.
+Размер ZIP 1 989 701 019 байт; SHA-256
+`ed41b57f00a2d91ce218fcc7f333fd70300c67f9b0d926ffc7c206d62d156594`.
+Первый curl с лимитом 180 секунд прерван по timeout после 466 631 251 байт;
+загрузка продолжена HTTP Range, остаток получен шестью параллельными диапазонами
+с проверкой Content-Range/длины. После объединения проверены CRC всех членов.
+Временный загрузчик использовал только standard library, без изменения proxy/TLS.
+Для повторной загрузки подходит тот же version-pinned endpoint с достаточным
+таймаутом; контроль результата — размер, SHA-256 и команда ниже.
+
+Проверенная команда:
+
+```console
+python scripts/audit_dataset_zip.py artifacts/data-audit/exports/document-signature-stamp-detection-v1.zip --output reports/data/composite-zip-audit.json
+```
+
+Evidence: [composite-zip-audit.json](composite-zip-audit.json).
+
+| Компонент | Изображений | Различных SHA-256 | Labels | Строк / исходный класс | Пустых labels |
+|---|---:|---:|---:|---|---:|
+| rvl_cdip | 16 000 | 15 980 | 0 | — | 0 |
+| signatures | 810 | 810 | 810 | 4 148 / 0 | 56 |
+| stamps | 300 | 285 | 300 | 486 / 0 | 0 |
+
+Всего 17 075 различных байтовых изображений из 17 110; 35 лишних копий.
+В stamps найдены 3 группы одинаковых SHA-256 между исходными train/val;
+этот split нельзя использовать без перегруппировки. В остальных компонентах
+побайтовых пересечений распознаваемых split не найдено; это не проверка near duplicates.
+Это верхняя граница, не число пригодных оригиналов. Изображения ещё не декодированы,
+near duplicates/синтетика/читаемость и оба класса на каждой странице не проверены.
+Все строки в двух компонентах имеют 5 токенов; корректность bbox не подтверждена.
+Отсутствующие labels RVL-CDIP и 56 пустых signature-labels не подтверждают negatives.
+
+`signatures/data.yaml`: `nc: 1`, `names: ['signatures']`, upstream version 1,
+декларация `CC BY 4.0`, источник
+https://universe.roboflow.com/zeadekrames-workspace/signature-yolo-t661e/dataset/1 .
+Это сведения экспортного YAML, первичные условия страницы ещё не проверены.
+`stamps/data.yaml`: `nc: 1`, `names: ['Stamp']`, train/val; источник и лицензия
+не указаны. В архиве не найден README/Markdown или filename с license.
+Mapping по компонентам различается: signatures 0→SealSign 1, stamps 0→SealSign 0.
+Склеивание labels без provenance ошибочно смешает подписи и печати.
+
+Декларация CC BY-NC-SA 4.0 для сборки по Kaggle API не заменяет проверку прав
+компонентов RVL-CDIP/stamps и первичных условий signatures. **Не принимать набор
+для supervised обучения до проверки прав, обоих классов и пилота.**
+Следующий шаг: установить upstream-источник stamps и условия RVL-CDIP;
+после этого декодирование, поиск near duplicates, воспроизводимый совместный пилот
+до 200 страниц и оценка полной доразметки ≥5 000 пригодных исходных страниц.
