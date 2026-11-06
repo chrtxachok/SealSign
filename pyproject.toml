@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling==1.27.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sealsign"
+version = "0.1.0"
+description = "Локальный поиск печатей и подписей на документах"
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+dependencies = []
+
+[project.scripts]
+sealsign = "sealsign.cli:main"
+
+[dependency-groups]
+dev = ["pytest==8.3.5", "ruff==0.11.13"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/sealsign"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

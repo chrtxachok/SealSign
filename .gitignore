@@ -16,3 +16,8 @@ runs/
 *.ckpt
 *.safetensors
 .DS_Store
+
+.ruff_cache/
+dist/
+build/
+*.egg-info/
