@@ -6,7 +6,7 @@
 __pycache__/
 *.py[cod]
 .pytest_cache/
-data/
+/data/
 artifacts/
 runs/
 *.zip

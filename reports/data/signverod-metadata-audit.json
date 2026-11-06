@@ -1,0 +1,96 @@
+{
+  "audit_date": "2026-11-06",
+  "repository": "mk-chang/SignverOD_Datset",
+  "revision": "c24bbbcc079138b9740cdc8f3afaed37c6ff5b0a",
+  "scope": "metadata_only_no_image_decode_no_visual_qc",
+  "accepted_for_training": false,
+  "minimum_original_pages": 5000,
+  "git_tree": {
+    "url": "https://api.github.com/repos/mk-chang/SignverOD_Datset/git/trees/c24bbbcc079138b9740cdc8f3afaed37c6ff5b0a?recursive=1",
+    "image_files": 2765,
+    "distinct_git_blob_ids": 2761,
+    "byte_identical_duplicate_excess": 4,
+    "byte_identical_duplicate_groups": 4,
+    "image_bytes": 796962784
+  },
+  "image_metadata": {
+    "rows": 2765,
+    "distinct_id_values": 2133,
+    "ambiguous_id_values": 632,
+    "distinct_filenames": 2765
+  },
+  "categories": {
+    "1": "signature",
+    "2": "initials",
+    "3": "redaction",
+    "4": "date"
+  },
+  "splits": {
+    "train": {
+      "annotation_rows": 7549,
+      "distinct_image_id_values": 1939,
+      "category_rows": {
+        "1": 4189,
+        "2": 951,
+        "3": 1858,
+        "4": 551
+      },
+      "rows_with_unknown_image_id": 0,
+      "rows_with_ambiguous_image_id": 4613,
+      "duplicate_annotation_id_excess": 2997,
+      "invalid_normalized_xywh_rows": 0,
+      "unknown_class_rows": 0
+    },
+    "test": {
+      "annotation_rows": 1666,
+      "distinct_image_id_values": 354,
+      "category_rows": {
+        "1": 855,
+        "2": 212,
+        "3": 450,
+        "4": 149
+      },
+      "rows_with_unknown_image_id": 0,
+      "rows_with_ambiguous_image_id": 1255,
+      "duplicate_annotation_id_excess": 166,
+      "invalid_normalized_xywh_rows": 0,
+      "unknown_class_rows": 0
+    }
+  },
+  "cross_split_image_id_value_overlap": 160,
+  "overlap_interpretation": "ID collisions prevent treating this as confirmed page leakage",
+  "inputs": {
+    "categories.csv": {
+      "url": "https://raw.githubusercontent.com/mk-chang/SignverOD_Datset/c24bbbcc079138b9740cdc8f3afaed37c6ff5b0a/categories.csv",
+      "bytes": 50,
+      "sha256": "38bf423927a5e356fb7af214e1f479e5a6085475d91c912ad7af717410048eac"
+    },
+    "image_ids.csv": {
+      "url": "https://raw.githubusercontent.com/mk-chang/SignverOD_Datset/c24bbbcc079138b9740cdc8f3afaed37c6ff5b0a/image_ids.csv",
+      "bytes": 112647,
+      "sha256": "8c3953472488c66648d8aafc225920a49f8902ae6558f4cd21e84956f598b412"
+    },
+    "train.csv": {
+      "url": "https://raw.githubusercontent.com/mk-chang/SignverOD_Datset/c24bbbcc079138b9740cdc8f3afaed37c6ff5b0a/train.csv",
+      "bytes": 771317,
+      "sha256": "2ca0f4a52e2e0b92ffab6c2e333f2af0f29e4ab623471f04f7063f1303e01d7a"
+    },
+    "test.csv": {
+      "url": "https://raw.githubusercontent.com/mk-chang/SignverOD_Datset/c24bbbcc079138b9740cdc8f3afaed37c6ff5b0a/test.csv",
+      "bytes": 169882,
+      "sha256": "1534e8b5f22697bb690bfb74c453c811826b380a2485fec613e557d7db5ab729"
+    },
+    "labelmap.txt": {
+      "url": "https://raw.githubusercontent.com/mk-chang/SignverOD_Datset/c24bbbcc079138b9740cdc8f3afaed37c6ff5b0a/labelmap.txt",
+      "bytes": 146,
+      "sha256": "21b14552600954711255e5d163537cb92841519cb907c93df5a145e10bc6f9f8"
+    }
+  },
+  "blockers": [
+    "below_5000_even_before_decoding_and_near_duplicate_review",
+    "no_stamp_category",
+    "ambiguous_image_ids_require_upstream_source_namespaces",
+    "primary_dataset_license_not_yet_verified",
+    "images_not_downloaded_or_reviewed"
+  ]
+}
