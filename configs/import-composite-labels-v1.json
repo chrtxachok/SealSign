@@ -1,0 +1,51 @@
+{
+  "archive_id": "composite-labels-v1",
+  "sha256": "ed41b57f00a2d91ce218fcc7f333fd70300c67f9b0d926ffc7c206d62d156594",
+  "sources": [
+    {
+      "images": "signatures/train/images",
+      "labels": "signatures/train/labels",
+      "format": "bbox",
+      "class_map": {
+        "0": 1
+      },
+      "original_split": "train"
+    },
+    {
+      "images": "signatures/valid/images",
+      "labels": "signatures/valid/labels",
+      "format": "bbox",
+      "class_map": {
+        "0": 1
+      },
+      "original_split": "valid"
+    },
+    {
+      "images": "signatures/test/images",
+      "labels": "signatures/test/labels",
+      "format": "bbox",
+      "class_map": {
+        "0": 1
+      },
+      "original_split": "test"
+    },
+    {
+      "images": "stamps/train/images",
+      "labels": "stamps/train/labels",
+      "format": "bbox",
+      "class_map": {
+        "0": 0
+      },
+      "original_split": "train"
+    },
+    {
+      "images": "stamps/val/images",
+      "labels": "stamps/val/labels",
+      "format": "bbox",
+      "class_map": {
+        "0": 0
+      },
+      "original_split": "val"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "archive_id": "sig-stamps-v1",
+  "sha256": "f5719c8acb7dcf903b84c3ca0f68fe5523031e809b514d1c8f32493e4bbc6617",
+  "sources": [
+    {
+      "images": "signature_stamp_segmentation_dataset/train/images",
+      "labels": "signature_stamp_segmentation_dataset/train/labels",
+      "format": "polygon",
+      "class_map": {
+        "0": 1,
+        "1": 0
+      },
+      "original_split": "train"
+    },
+    {
+      "images": "signature_stamp_segmentation_dataset/valid/images",
+      "labels": "signature_stamp_segmentation_dataset/valid/labels",
+      "format": "polygon",
+      "class_map": {
+        "0": 1,
+        "1": 0
+      },
+      "original_split": "valid"
+    },
+    {
+      "images": "signature_stamp_segmentation_dataset/test/images",
+      "labels": "signature_stamp_segmentation_dataset/test/labels",
+      "format": "polygon",
+      "class_map": {
+        "0": 1,
+        "1": 0
+      },
+      "original_split": "test"
+    }
+  ]
+}

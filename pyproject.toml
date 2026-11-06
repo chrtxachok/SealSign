@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "Локальный поиск печатей и подписей на документах"
 readme = "README.md"
 requires-python = ">=3.11,<3.13"
-dependencies = []
+dependencies = ["Pillow==13.0.0"]
 
 [project.scripts]
 sealsign = "sealsign.cli:main"

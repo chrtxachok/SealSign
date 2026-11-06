@@ -8,7 +8,7 @@
 |---|---|---|---|---|
 | S01 Каркас | done | Python 3.11.17 Linux: clean uv sync --locked; CLI help/version; ruff; 6 tests passed; подробности ниже | — | remote CI и Windows ещё не запускались; далее S02 |
 | S02 Аудит данных | blocked | reports/data/dataset-card.md; signverod-metadata-audit.json; kaggle-metadata-audit.json; два воспроизводимых скрипта | f10d848; продолжение см. запись ниже | Два ZIP v1 получены, CRC/SHA-256 проверены; нет принятого корпуса ≥5 000, прав всех компонентов и пилота |
-| S03 Импорт | todo | — | — | вход: принятый источник |
+| S03 Импорт | blocked | docs/14; src/sealsign/data; import-verification.json; 46 tests passed | см. запись S03 | код и исследовательские прогоны готовы; вход S02 не принят, исключения требуют QC |
 | S04 QC и split | todo | — | — | вход: корпус и человеческий QC |
 | S05 Обучение | todo | — | — | вход: принятый split и GPU |
 | S06 Core/CLI | todo | — | — | вход: bundle для полной приёмки |
@@ -166,3 +166,58 @@
   Новые тесты: CRC повреждённого ZIP, опасные пути/symlink, обнаружение exact leakage,
   различие пустых labels/непроверенных страниц и подтверждённых negatives.
   `git check-ignore` подтвердил исключение ZIP из Git; GPU/модель не проверялись.
+
+
+## S03 — 06.11.2026, импорт и канонические аннотации
+
+- Поручение пользователя: «следующий этап»; выполнена независимая реализация S03,
+  блокер принятия источника из S02 сохранён. Ветка work, исходный commit 57d05de.
+- Добавлены src/sealsign/data/{geometry,importer,validator}.py, CLI data import/validate,
+  configs/import-{sig-stamps-v1,composite-labels-v1}.json, docs/14-data-import.md,
+  tests/test_data_import.py и reports/data/import-verification.json; обновлены README,
+  журнал и решения. Pillow==13.0.0 закреплён в pyproject.toml и uv.lock.
+- Импортёр: ZIP SHA-256 и бюджет, запрет traversal/symlink/повторов, orphan labels,
+  неоднозначных image→label; стабильные page_id, source checksum/геометрия/provenance,
+  pixel COCO bbox, производные unreviewed YOLO, PNG и технические previews.
+  EXIF 1–8 преобразуется согласованно с рамками; исходный split сохраняется отдельно.
+- Все страницы unreviewed, новые split/group IDs null. Missing и empty_unreviewed
+  различаются. Ошибочная страница остаётся в manifest с причиной, без частичных рамок.
+  accepted_for_training=false. Безопасный новый output, существующий не перезаписывается.
+- Проверенная среда: Linux CPU, Python 3.12.14, Pillow 13.0.0. Сеть/готовность
+  cloud environment проверены; штатные proxy/TLS сохранены. Команды:
+  - `UV_CACHE_DIR=/tmp/sealsign-uv uv lock --python python3.12` и
+    `UV_CACHE_DIR=/tmp/sealsign-uv uv sync --locked --python python3.12`: успешно.
+    Первая попытка uv lock без выбора Python упёрлась в read-only home для Python 3.11;
+    исправлено явным выбором имеющегося Python 3.12, системная конфигурация не менялась.
+  - `.venv/bin/sealsign data import --help`: exit 0.
+  - Оба import из docs/14 исполнены через `.venv/bin/sealsign`, preview-limit=12:
+    Sig & Stamps — 2 452 входных/канонических страниц, 5 265 рамок, 0 исключений;
+    составной — только 1 110 выбранных signatures/stamps, 1 102 канонических страниц,
+    4 613 рамок, 8 исключений Box extends outside image. Весь RVL-CDIP не импортирован.
+  - Первое исполнение на JPEG выявило отсутствие атрибута n_frames у JpegImageFile;
+    исправлено через getattr с default=1, добавлен регрессионный тест.
+  - `uv run --no-sync sealsign data validate artifacts/data-import/composite-labels-v1`
+    (UV_CACHE_DIR=/tmp/sealsign-uv): exit 0, 1 102 images/4 613 annotations.
+    uv предупредил о .python-version=3.11 при активной 3.12; следующий запуск явно
+    использовал `--python python3.12` (обе версии разрешены pyproject).
+  - `uv run --no-sync --python python3.12 sealsign data validate artifacts/data-import/sig-stamps-v1`
+    (тот же cache): exit 0, 2 452 images/5 265 annotations.
+  - `.venv/bin/ruff check .`, `.venv/bin/ruff format --check .`, `git diff --check`: passed.
+    `.venv/bin/pytest -q`: 46 passed (0.66 s). Tests без внешних данных/сети.
+- Проверены реальная конвертация bbox/polygon и mapping, все EXIF, NaN/out-of-bounds,
+  неверный class, повреждённый файл, небезопасные ZIP/повтор/symlink, orphan/ambiguity,
+  exact duplicate groups, повторяемость, подмена checksum/геометрии/YOLO и CLI end-to-end.
+- Counts до/после: Sig & Stamps сохраняет все 5 265 строк (1 834 stamp/3 431 signature),
+  16 пустых labels не считаются negatives. В composite остаётся 4 148 signature/465 stamp;
+  8 исключённых stamp-страниц содержат 21 исходную строку; 56 пустых labels unreviewed.
+  Все выбранные реальные изображения имеют EXIF=1; EXIF 2–8 проверены на fixtures.
+- Ограничения: нет принятого источника ≥5 000 из S02, совместного визуального QC и
+  решения по исключениям. CSV/COCO/raster masks не поддерживаются как вход;
+  полная топология polygon не проверяется. Preview первых 12 — не случайный пилот S02.
+  Ни уникальные оригиналы, ни полнота двух классов, ни обучение этим не подтверждены.
+- Статус S03 blocked, не done: реализация и исследовательский прогон подтверждены,
+  приёмка на разрешённом корпусе зависит от S02. S04 и обучение не запускались.
+- Следующий шаг: закрыть права/provenance и пилот S02, согласовать 8 исключений,
+  повторить импорт принятого корпуса; затем переходить к QC/группировке S04.
+- Git: отдельный коммит `feat: implement research data import and validation`, затем
+  push origin/work, автор chrtxachok <egormalanin425@gmail.com>. Данные/превью не публикуются.

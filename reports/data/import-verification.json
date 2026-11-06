@@ -1,0 +1,71 @@
+{
+  "schema_version": "sealsign-data-v1",
+  "python": "3.12.14",
+  "pillow": "13.0.0",
+  "accepted_for_training": false,
+  "runs": {
+    "sig-stamps-v1": {
+      "import": {
+        "schema_version": "sealsign-data-v1",
+        "archive_sha256": "f5719c8acb7dcf903b84c3ca0f68fe5523031e809b514d1c8f32493e4bbc6617",
+        "config_sha256": "2881e950350d6205d4ac32254e435583994853cb54008be393261ded1a2c1a44",
+        "input_images": 2452,
+        "canonical_images": 2452,
+        "excluded_images": 0,
+        "annotation_status_counts": {
+          "present": 2436,
+          "empty_unreviewed": 16
+        },
+        "objects_by_class": {
+          "0": 1834,
+          "1": 3431
+        },
+        "accepted_for_training": false,
+        "review_status": "unreviewed"
+      },
+      "validation": {
+        "pages": 2452,
+        "images": 2452,
+        "annotations": 5265,
+        "passed": true
+      },
+      "source_exif_orientations": {
+        "1": 2452
+      },
+      "exclusion_reasons": {}
+    },
+    "composite-labels-v1": {
+      "import": {
+        "schema_version": "sealsign-data-v1",
+        "archive_sha256": "ed41b57f00a2d91ce218fcc7f333fd70300c67f9b0d926ffc7c206d62d156594",
+        "config_sha256": "95ed6aac8ca0d4e12495a610071b70fe9886970e80a179886bf11b06c11e1a33",
+        "input_images": 1110,
+        "canonical_images": 1102,
+        "excluded_images": 8,
+        "annotation_status_counts": {
+          "present": 1046,
+          "empty_unreviewed": 56,
+          "invalid": 8
+        },
+        "objects_by_class": {
+          "1": 4148,
+          "0": 465
+        },
+        "accepted_for_training": false,
+        "review_status": "unreviewed"
+      },
+      "validation": {
+        "pages": 1110,
+        "images": 1102,
+        "annotations": 4613,
+        "passed": true
+      },
+      "source_exif_orientations": {
+        "1": 1110
+      },
+      "exclusion_reasons": {
+        "Box extends outside image": 8
+      }
+    }
+  }
+}
