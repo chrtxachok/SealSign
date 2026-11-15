@@ -9,7 +9,7 @@
 | S01 Каркас | done | Python 3.11.17 Linux: clean uv sync --locked; CLI help/version; ruff; 6 tests passed; подробности ниже | — | remote CI и Windows ещё не запускались; далее S02 |
 | S02 Аудит данных | blocked | reports/data/dataset-card.md; signverod-metadata-audit.json; kaggle-metadata-audit.json; два воспроизводимых скрипта | f10d848; продолжение см. запись ниже | Два ZIP v1 получены, CRC/SHA-256 проверены; нет принятого корпуса ≥5 000, прав всех компонентов и пилота |
 | S03 Импорт | blocked | docs/14; src/sealsign/data; import-verification.json; 46 tests passed | см. запись S03 | код и исследовательские прогоны готовы; вход S02 не принят, исключения требуют QC |
-| S04 QC и split | todo | — | — | вход: корпус и человеческий QC |
+| S04 QC и split | blocked | docs/15-qc-pilot.md; две приватные выборки по 50 страниц seed=42 | см. запись S04 | нужны принятый корпус, независимый просмотр, устранение спорных случаев и групповой split |
 | S05 Обучение | todo | — | — | вход: принятый split и GPU |
 | S06 Core/CLI | todo | — | — | вход: bundle для полной приёмки |
 | S07 API | todo | — | — | вход: core |
@@ -221,3 +221,44 @@
   повторить импорт принятого корпуса; затем переходить к QC/группировке S04.
 - Git: отдельный коммит `feat: implement research data import and validation`, затем
   push origin/work, автор chrtxachok <egormalanin425@gmail.com>. Данные/превью не публикуются.
+
+
+## S04 — 15.11.2026, подготовка совместного пилота
+
+- По просьбе пользователя продолжается работа в облачном checkout work с c224810.
+  Папка Windows D: из облачной среды не была видна; архивы восстановлены через
+  публичный version-pinned Kaggle API, штатный proxy/TLS. Локальные ZIP и данные
+  находятся только под gitignored artifacts/ и в Git не включаются.
+- SHA-256 совпали с паспортом S02: Sig & Stamps v1 —
+  f5719c8acb7dcf903b84c3ca0f68fe5523031e809b514d1c8f32493e4bbc6617;
+  zeadekrame v1 — ed41b57f00a2d91ce218fcc7f333fd70300c67f9b0d926ffc7c206d62d156594.
+  Первый ZIP повторно импортирован: 2 452 images, 5 265 annotations, 0 исключений;
+  `sealsign data validate` exit 0. Пригодность/права этим не подтверждаются.
+- Созданы scripts/prepare_qc_pilot.py и docs/15-qc-pilot.md, тесты отбора и
+  checksum; подготовлена приватная выборка 50 страниц исходного train, seed=42:
+  `artifacts/data-qc/sig-stamps-pilot-v1/`. Test не использован. В выборке
+  не повторяются точный SHA-256 и префикс имени до `.rf.`; это не доказательство
+  независимости документов и не проверка near duplicates.
+- Локальный manifest SHA-256 d41609f98e391dd607cdea95299735b13540bfce8aed1b98802339c626e9cd71;
+  annotations SHA-256 6f70d9551492df1aff01aedf9bdd5d50aac27692b02a6821abe97f93e87f40a5.
+  pilot.json фиксирует page IDs и seed, отдельные pages/ и annotated/ предназначены
+  для независимого просмотра; review-template.csv не содержит решений.
+- Проверки на Python 3.12.14: `.venv/bin/ruff check .` — passed;
+  `.venv/bin/ruff format --check .` — passed; `.venv/bin/pytest -q` — 48 passed;
+  отбор исключает upstream test, воспроизводим и отклоняет изменение изображения.
+  Реальная команда подготовки и формат записаны в docs/15.
+- S04 blocked: пилот подготовлен, но просмотр и согласование не проведены;
+  source ещё не принят в S02/S03, права и ≥5 000 независимых страниц не доказаны.
+  Не назначены group/split и не проводилось обучение. Следующий шаг: независимый
+  просмотр пилота, фиксация спорных случаев и проверка прав; после этого полный QC,
+  объединение групп и разбиение по документам/дублям.
+
+- Дополнительно тот же отбор применён к импортированным signatures/stamps из
+  составного ZIP: 50 страниц train (38 signatures, 12 stamps), без RVL-CDIP.
+  При импорте получены 1 102 из 1 110 images, 4 613 annotations и 8 исключённых
+  страниц с bbox за границами; `sealsign data validate` exit 0. Manifest SHA-256
+  0011868b7f70e676c97a954f8f959822b742b3354ec1e6fb0e23392aa2175607,
+  annotations SHA-256 1f40f98c3b8c455e572b56bf5af0d4727c2cd0f5bd0c1146a16b5cd84c8f15ac.
+  Оба пилота упакованы в отдельные приватные ZIP под artifacts/data-qc/;
+  в каждом есть README, исходные страницы, рамки и пустой review-template.csv.
+  S04 остаётся blocked: просмотр этих страниц ещё не выполнен.
