@@ -1,0 +1,12 @@
+{
+  "sample_selection": "Seed42, first train/train pair per distinct candidate graph component, 8 components",
+  "sample_pairs_reviewed": 8,
+  "same_original_background_pairs": 8,
+  "different_document_pairs": 0,
+  "uncertain_pairs": 0,
+  "all_candidate_pairs_verified": false,
+  "accepted_for_training": false,
+  "thresholds_changed_after_review": false,
+  "source_sha256": "dc47ed4cfdc5543cb5ace56edb49ab8e7338c063288a8ea8558d274ec0633f4e",
+  "limitations": "Eight train-only pairs are evidence for those pairs only, not an estimated full-corpus duplicate rate."
+}

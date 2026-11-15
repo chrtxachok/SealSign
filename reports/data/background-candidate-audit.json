@@ -1,0 +1,78 @@
+{
+  "schema_version": "sealsign-background-candidates-v1",
+  "inputs": [
+    {
+      "filename": "test.zip",
+      "sha256": "c3942fd1dc8037649885c7cec7d5e1c8399b131fe75605083c39d50b674d5f4b",
+      "images": 786
+    },
+    {
+      "filename": "train.zip",
+      "sha256": "07016aa6df14b4b4fab6bfa896469003160f932677bae86e8f91712f6cbdef0c",
+      "images": 6283
+    },
+    {
+      "filename": "val.zip",
+      "sha256": "0dd0b1fd1259a4a28bdaea12711c658ff0b419af868bcb37ef1686d71aa7c3f5",
+      "images": 785
+    }
+  ],
+  "parameters": {
+    "size": 128,
+    "grid": 4,
+    "tile_hash": "mean-threshold-8x8",
+    "tile_min_range": 40,
+    "tile_min_dark_pixels": 20,
+    "tile_max_mask_pixels": 256,
+    "max_bucket_pages": 200,
+    "min_shared_tiles": 4,
+    "min_visible_fraction": 0.5,
+    "min_ink_pixels": 128,
+    "dark_threshold": 200,
+    "pixel_tolerance": 12,
+    "min_close_fraction": 0.85,
+    "min_ink_iou": 0.7
+  },
+  "images": 7854,
+  "pages_with_at_least_four_active_tiles": 7666,
+  "common_buckets_ignored": 0,
+  "pairs_with_at_least_four_shared_tiles": 18414,
+  "candidate_pairs": 16776,
+  "cross_archive_candidate_pairs": 5514,
+  "pairs_reviewed": false,
+  "independent_originals_proven": false,
+  "accepted_for_training": false,
+  "limitations": [
+    "Aligned, sufficiently textured pages only; rotation, crops and scans can be missed.",
+    "Source stamp boxes may be incomplete; signatures are not masked.",
+    "Frequent tile buckets and low-ink pages are omitted, so this is not exhaustive.",
+    "Matching templates can pass; candidates never establish original counts or groups."
+  ],
+  "candidate_graph_components": 583,
+  "candidate_graph_participating_files": 4040,
+  "candidate_component_size_histogram": {
+    "2": 164,
+    "3": 20,
+    "4": 34,
+    "5": 38,
+    "6": 30,
+    "7": 44,
+    "8": 45,
+    "9": 44,
+    "10": 40,
+    "11": 34,
+    "12": 22,
+    "13": 19,
+    "14": 14,
+    "15": 11,
+    "16": 6,
+    "17": 6,
+    "18": 7,
+    "19": 2,
+    "21": 2,
+    "32": 1
+  },
+  "candidate_graph_is_not_verified_grouping": true,
+  "hypothetical_original_count_if_all_candidate_components_are_single_originals": 4397,
+  "hypothetical_count_is_not_a_proven_original_count": true
+}

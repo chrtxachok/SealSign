@@ -1,0 +1,8 @@
+{
+  "same_full_report": true,
+  "same_full_candidate_csv": true,
+  "same_inventory": true,
+  "candidate_csv_sha256": "dc47ed4cfdc5543cb5ace56edb49ab8e7338c063288a8ea8558d274ec0633f4e",
+  "candidate_pairs": 16776,
+  "optimization": "Pillow ImageChops histogram replaces the Python pixel loop; all criteria unchanged"
+}

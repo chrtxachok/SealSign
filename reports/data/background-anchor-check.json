@@ -1,0 +1,7 @@
+{
+  "previously_reviewed_train_anchor_pairs": 4,
+  "recovered_pairs": 4,
+  "thresholds_changed_after_anchor_check": false,
+  "independent_evaluation": false,
+  "accepted_for_training": false
+}
