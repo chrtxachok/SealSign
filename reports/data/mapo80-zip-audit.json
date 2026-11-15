@@ -1,0 +1,62 @@
+{
+  "accepted_for_training": false,
+  "archives": [
+    {
+      "filename": "train.zip",
+      "bytes": 782933564,
+      "sha256": "07016aa6df14b4b4fab6bfa896469003160f932677bae86e8f91712f6cbdef0c",
+      "zip_crc_verified": true,
+      "counts": {
+        "images": 6283,
+        "bright_green_candidates": 0,
+        "decoded": 6283,
+        "label_rows": 10046,
+        "empty_unreviewed_labels": 996,
+        "valid_label_pages": 6283,
+        "valid_stamp_boxes": 10046,
+        "orphan_labels": 0
+      },
+      "errors": {}
+    },
+    {
+      "filename": "val.zip",
+      "bytes": 92278525,
+      "sha256": "0dd0b1fd1259a4a28bdaea12711c658ff0b419af868bcb37ef1686d71aa7c3f5",
+      "zip_crc_verified": true,
+      "counts": {
+        "images": 785,
+        "bright_green_candidates": 0,
+        "decoded": 785,
+        "label_rows": 1298,
+        "empty_unreviewed_labels": 125,
+        "valid_label_pages": 785,
+        "valid_stamp_boxes": 1298,
+        "orphan_labels": 0
+      },
+      "errors": {}
+    },
+    {
+      "filename": "test.zip",
+      "bytes": 95060991,
+      "sha256": "c3942fd1dc8037649885c7cec7d5e1c8399b131fe75605083c39d50b674d5f4b",
+      "zip_crc_verified": true,
+      "counts": {
+        "images": 786,
+        "bright_green_candidates": 0,
+        "decoded": 786,
+        "label_rows": 1315,
+        "empty_unreviewed_labels": 125,
+        "valid_label_pages": 786,
+        "valid_stamp_boxes": 1315,
+        "orphan_labels": 0
+      },
+      "errors": {}
+    }
+  ],
+  "visual_qc_complete": false,
+  "signature_annotations_verified": false,
+  "distinct_source_sha256": 7854,
+  "exact_duplicate_groups": 0,
+  "exact_duplicate_groups_crossing_archives": 0,
+  "green_rule": "at least 30 pixels with R<=40 G>=200 B<=40; candidate only"
+}

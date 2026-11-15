@@ -1,0 +1,13 @@
+{
+  "images": 7854,
+  "counts": {
+    "pairs_le_2": 2685,
+    "same_dhash_pairs": 737,
+    "cross_split_pairs_le_2": 868
+  },
+  "stored_pair_limit": 1000,
+  "stored_pairs": 1000,
+  "pairs_reviewed": false,
+  "accepted_for_training": false,
+  "note": "dHash similarity is not proof of duplicate pages; CSV is only first candidate pairs"
+}
