@@ -1,25 +1,25 @@
 {
-  "reviewed_components": 18,
-  "remaining_candidate_components": 565,
-  "reviewed_files": 340,
-  "background_groups": 19,
-  "additional_variants": 321,
-  "groups_crossing_upstream_archives": 17,
-  "reviewed_candidate_edges": 2864,
+  "reviewed_components": 30,
+  "remaining_candidate_components": 553,
+  "reviewed_files": 526,
+  "background_groups": 31,
+  "additional_variants": 495,
+  "groups_crossing_upstream_archives": 27,
+  "reviewed_candidate_edges": 4189,
   "different_background_candidate_edges": 130,
-  "review_sha256": "da314a87207c5cb670fde64d18bc896917c41b4546d6efa8ce8439f0ad20c809",
+  "review_sha256": "86be34a37f5d2f6d69ac7d7c4dc9b3a2f6c868395600f3a43b085f09d41b7554",
   "accepted_for_training": false,
   "global_original_count_established": false,
   "canonical_groups_or_split_modified": false,
-  "selection": "Eighteen largest candidate components, ties ordered by stable component_id; not a random corpus sample",
+  "selection": "Thirty largest candidate components, ties ordered by stable component_id; not a random corpus sample",
   "review_scope": "Visual original/background identity only, including upstream splits; no annotation or model tuning",
   "original_count_vs_leakage_family": "Two distinct originals in the largest component share a template family; original identity and leakage grouping remain separate",
   "candidate_graph_components_split": 1,
   "all_components_reviewed": false,
   "previous_checkpoint": {
-    "components": 6,
-    "files": 130,
-    "background_groups": 7,
-    "additional_variants": 123
+    "components": 18,
+    "files": 340,
+    "background_groups": 19,
+    "additional_variants": 321
   }
 }
