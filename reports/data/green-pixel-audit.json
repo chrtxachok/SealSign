@@ -1,0 +1,11 @@
+{
+  "schema_version": "sealsign-green-pixel-audit-v1",
+  "scope": "normalized decoded stamps component; excluded pages omitted",
+  "images": 292,
+  "candidates": 292,
+  "rgb_rule": "R<=40 and G>=200 and B<=40",
+  "minimum_pixels": 30,
+  "manifest_sha256": "0011868b7f70e676c97a954f8f959822b742b3354ec1e6fb0e23392aa2175607",
+  "candidate_is_not_verified_annotation": true,
+  "accepted_for_training": false
+}
