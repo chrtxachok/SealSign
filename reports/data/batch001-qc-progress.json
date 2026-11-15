@@ -1,15 +1,49 @@
 {
   "batch": "001",
-  "overview_pages": 40,
-  "full_resolution_pages": [
+  "overview_pages": 100,
+  "source_resolution_signature_inspection_pages": [
     4,
     10,
-    11
+    11,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    47,
+    48,
+    51,
+    52,
+    53,
+    87
   ],
-  "signature_boxes_added": 2,
+  "signature_boxes_added": 53,
+  "signature_boxes_added_this_checkpoint": 51,
   "source_objects": 144,
-  "draft_objects": 146,
+  "draft_objects": 197,
+  "stamp_boxes": 144,
+  "signature_boxes": 53,
   "final_qc_pages": 0,
-  "group_candidates": 2,
-  "accepted_for_training": false
+  "group_candidate_sets": 7,
+  "accepted_for_training": false,
+  "output_annotations_sha256": "faced727bf0a166c0d833706cc61aa7049900952c38c753dfd152e3a23618253",
+  "limitations": [
+    "Overview is triage, not full two-class QC",
+    "Signature candidates remain on later pages; stamp completeness not yet checked",
+    "Original source count, component rights and model split remain unresolved"
+  ]
 }
