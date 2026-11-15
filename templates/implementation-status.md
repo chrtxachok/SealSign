@@ -410,3 +410,32 @@
   доразметить подписи на каждой используемой странице, выполнить независимый
   второй QC и подтвердить ≥5 000 независимых исходных страниц после группировки.
   Новый split/обучение не запускались; accepted_for_training=false.
+
+
+## S04 — 15.11.2026, редактор первого просмотра
+
+- По поручению пользователя подготовлен переносимый HTML-редактор текущего
+  mapo80 pilot50. Встраиваются изображения и 84 stamp bbox; можно рисовать
+  подписи/печати, менять класс/численные координаты, удалять объекты, отмечать
+  просмотр обоих классов и экспортировать/загружать JSON. Нет внешнего backend.
+- Код: src/sealsign/data/editor/editor.html; scripts/build_annotation_editor.py,
+  scripts/validate_annotation_review.py; инструкция docs/19-annotation-editor.md.
+  Приватный ZIP artifacts/annotation-editor/mapo80-editor-pilot50.zip содержит
+  editor.html и README.txt (28 511 607 байт); исходный HTML 38 145 604 байта,
+  50 страниц. Данные/HTML с документами/screenshots в Git не включаются.
+- Export привязан к SHA-256 manifest/annotations и PNG, сохраняет reviewer,
+  bbox и class flags. first_review не является итоговым QC, accepted_for_training
+  всегда false; обновление канонического corpus отдельно после проверки.
+  Браузер сохраняет черновик в localStorage, сообщает об ошибке сохранения;
+  рекомендуется регулярно скачивать резервный JSON. Правка сбрасывает first_review.
+- Проверки: 59 tests passed (0.49 s), ruff check/format и git diff --check — passed.
+  Реальный browser smoke: Chromium headless через loopback HTTP — рисование,
+  статус просмотра, out-of-bounds rejection, reload persistence, export, delete,
+  restore и отклонение export с чужим source hash без изменения данных.
+  Page errors отсутствуют. File:// запрещён политикой облачного Chromium;
+  открытие file:// и Python server на Windows не проверялись.
+- Python-валидатор проверил синтетический browser export: 50 страниц, 85 объектов,
+  first_review на 1 странице. Это исключительно тест UI, не настоящая разметка;
+  synthetic bbox не применялась к источнику и не включена в распространяемый HTML.
+- S04 blocked: инструмент готов к первому просмотру 50 страниц, но реальная
+  доразметка всего корпуса и независимый второй QC пока не завершены.

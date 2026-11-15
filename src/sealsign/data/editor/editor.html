@@ -1,0 +1,52 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<title>SealSign — проверка разметки</title>
+<style>body{margin:0;font:15px system-ui;color:#162638;background:#eef2f6}header{padding:14px;background:#142d49;color:white;display:flex;gap:12px;align-items:center;flex-wrap:wrap}button,select,input{font:inherit;padding:6px}button{cursor:pointer}main{display:grid;grid-template-columns:290px 1fr;height:calc(100vh - 100px)}aside{padding:12px;overflow:auto;background:white}section{overflow:auto;padding:12px}canvas{background:white;touch-action:none}label{display:block;margin:10px 0}#boxes button{display:block;width:100%;text-align:left;margin:4px 0}.selected{background:#d3e7ff}#status{padding:8px;background:#fff1c2}#fields input{width:100px}small{display:block;line-height:1.5}#note{width:95%}</style>
+<header><strong>SealSign · разметка пилота</strong><button id="prev">←</button><span id="position"></span><button id="next">→</button><button id="export">Скачать правки JSON</button><label>Загрузить правки <input id="restore" type="file" accept="application/json"></label></header>
+<div id="status" role="status"></div><main><aside>
+<small>Выберите класс и протяните рамку мышью. Нажмите рамку в списке для изменения координат. Красный — печать, синий — подпись. Стрелки сверху переключают страницы.</small>
+<label>Проверяющий <input id="reviewer" placeholder="Имя или идентификатор"></label>
+<label>Новый объект <select id="class"><option value="0">Печать</option><option value="1">Подпись</option></select></label>
+<label>Масштаб <input id="zoom" type="range" min="25" max="200" value="100"> <span id="zoomvalue"></span></label>
+<div id="boxes"></div><div id="fields" hidden><strong>Выбранная рамка</strong><label>Класс <select id="category"><option value="0">Печать</option><option value="1">Подпись</option></select></label><div id="coordinates"></div><button id="apply">Применить координаты</button><button id="delete">Удалить рамку</button></div>
+<label><input id="stamp" type="checkbox">Печати проверены на всей странице</label>
+<label><input id="signature" type="checkbox">Подписи проверены на всей странице</label>
+<label>Замечания <textarea id="note" rows="3"></textarea></label>
+<button id="reviewed">Отметить просмотр страницы</button><p id="reviewstate"></p>
+<small>Отметка — первый просмотр, не итоговый QC. Правки не меняют исходный набор. Для передачи работы регулярно скачивайте JSON; потребуется второй проверяющий.</small>
+</aside><section id="viewport"><canvas id="canvas"></canvas></section></main>
+<script id="dataset" type="application/json">__DATASET__</script>
+<script>
+'use strict';
+const data=JSON.parse(document.getElementById('dataset').textContent), $=id=>document.getElementById(id);
+const key='sealsign-editor-'+data.manifest_sha256;let index=0,selected=-1,start=null,dirty=false;
+let state={schema_version:'sealsign-review-v1',manifest_sha256:data.manifest_sha256,annotations_sha256:data.annotations_sha256,reviewer:'',accepted_for_training:false,pages:data.pages.map(p=>({page_id:p.page_id,image_sha256:p.sha256,width:p.width,height:p.height,objects:p.objects,stamp_checked:false,signature_checked:false,review_status:'unreviewed',note:''}))};
+const canvas=$('canvas'),ctx=canvas.getContext('2d');let currentImage=null;
+function message(text){$('status').textContent=text}
+function validate(candidate){
+ if(candidate.schema_version!==state.schema_version||candidate.manifest_sha256!==data.manifest_sha256||candidate.annotations_sha256!==data.annotations_sha256||candidate.accepted_for_training!==false||!Array.isArray(candidate.pages)||candidate.pages.length!==data.pages.length)throw Error('Файл относится к другим данным или имеет неверный формат');
+ if(typeof candidate.reviewer!=='string')throw Error('Неверное имя проверяющего');
+ candidate.pages.forEach((p,i)=>{let source=data.pages[i];if(p.page_id!==source.page_id||p.image_sha256!==source.sha256||p.width!==source.width||p.height!==source.height||!Array.isArray(p.objects))throw Error('Неверная страница');
+ if(typeof p.stamp_checked!=='boolean'||typeof p.signature_checked!=='boolean'||typeof p.note!=='string'||!['unreviewed','first_review'].includes(p.review_status))throw Error('Неверный статус просмотра');
+ if(p.review_status==='first_review'&&(!p.stamp_checked||!p.signature_checked||!candidate.reviewer.trim()))throw Error('Не подтверждён просмотр обоих классов');
+ const seen=new Set();p.objects.forEach(o=>{if(![0,1].includes(o.category_id)||!Array.isArray(o.bbox)||o.bbox.length!==4||!o.bbox.every(Number.isFinite))throw Error('Неверная рамка');let[x,y,w,h]=o.bbox;if(x<0||y<0||w<=0||h<=0||x+w>p.width+1e-7||y+h>p.height+1e-7)throw Error('Рамка вне изображения');let k=JSON.stringify([o.category_id,...o.bbox]);if(seen.has(k))throw Error('Повтор рамки');seen.add(k)})});return candidate;
+}
+try{const saved=localStorage.getItem(key);if(saved)state=validate(JSON.parse(saved))}catch(e){message('Локальные правки не загружены: '+e.message)}
+function save(){dirty=true;try{localStorage.setItem(key,JSON.stringify(state));message('Правки сохранены в этом браузере. Скачайте JSON для резервной копии.')}catch(e){message('Браузер не сохранил правки. Немедленно скачайте JSON!')}}
+function changed(){state.pages[index].review_status='unreviewed';save();renderList()}
+function draw(){if(!currentImage)return;ctx.clearRect(0,0,canvas.width,canvas.height);ctx.drawImage(currentImage,0,0);state.pages[index].objects.forEach((o,i)=>{ctx.strokeStyle=o.category_id===0?'#dc2626':'#2563eb';ctx.lineWidth=Math.max(2,canvas.width/400)*(i===selected?2:1);ctx.strokeRect(...o.bbox);ctx.font=`${Math.max(14,canvas.width/50)}px sans-serif`;ctx.fillStyle=ctx.strokeStyle;ctx.fillText(String(i+1),o.bbox[0],Math.max(20,o.bbox[1]))})}
+function renderList(){const p=state.pages[index];$('boxes').replaceChildren();p.objects.forEach((o,i)=>{let b=document.createElement('button');b.textContent=(i+1)+'. '+(o.category_id===0?'Печать':'Подпись');b.className=i===selected?'selected':'';b.onclick=()=>{selected=i;renderList();draw()};$('boxes').append(b)});$('fields').hidden=selected<0;if(selected>=0){const o=p.objects[selected];$('category').value=o.category_id;$('coordinates').replaceChildren();['x','y','width','height'].forEach((name,j)=>{const l=document.createElement('label'),v=document.createElement('input');l.textContent=name+' ';v.type='number';v.step='any';v.id='coord'+j;v.value=o.bbox[j];l.append(v);$('coordinates').append(l)})}$('reviewstate').textContent=p.review_status==='first_review'?'Первый просмотр отмечен':'Просмотр не завершён'}
+function zoom(){let scale=+$('zoom').value/100;canvas.style.width=canvas.width*Math.min(1,Math.max(200,$('viewport').clientWidth-24)/canvas.width)*scale+'px';$('zoomvalue').textContent=$('zoom').value+'%'}
+function show(){selected=-1;start=null;currentImage=null;const p=state.pages[index];$('position').textContent=`${index+1} / ${data.pages.length}`;$('reviewer').value=state.reviewer;$('stamp').checked=p.stamp_checked;$('signature').checked=p.signature_checked;$('note').value=p.note;renderList();const target=index;const im=new Image();im.onload=()=>{if(index!==target)return;currentImage=im;canvas.width=p.width;canvas.height=p.height;zoom();draw()};im.src=data.pages[index].image;}
+function point(e){const r=canvas.getBoundingClientRect();return[Math.max(0,Math.min(canvas.width,(e.clientX-r.left)*canvas.width/r.width)),Math.max(0,Math.min(canvas.height,(e.clientY-r.top)*canvas.height/r.height))]}
+canvas.onpointerdown=e=>{if(!currentImage||e.button!==0)return;start=point(e);canvas.setPointerCapture(e.pointerId)};
+canvas.onpointermove=e=>{if(!start)return;draw();let end=point(e);ctx.strokeStyle='#a21caf';ctx.strokeRect(start[0],start[1],end[0]-start[0],end[1]-start[1])};
+canvas.onpointerup=e=>{if(!start)return;const end=point(e),box=[Math.min(start[0],end[0]),Math.min(start[1],end[1]),Math.abs(end[0]-start[0]),Math.abs(end[1]-start[1])];start=null;if(box[2]>=2&&box[3]>=2){state.pages[index].objects.push({category_id:+$('class').value,bbox:box});selected=state.pages[index].objects.length-1;changed()}draw()};canvas.onpointercancel=()=>{start=null;draw()};
+$('apply').onclick=()=>{if(selected<0)return;const old=state.pages[index].objects[selected],next={category_id:+$('category').value,bbox:[0,1,2,3].map(j=>$('coord'+j).value.trim()===''?NaN:Number($('coord'+j).value))};state.pages[index].objects[selected]=next;try{validate(state);changed();draw()}catch(e){state.pages[index].objects[selected]=old;message(e.message)}};
+$('delete').onclick=()=>{if(selected<0)return;state.pages[index].objects.splice(selected,1);selected=-1;changed();draw()};
+$('stamp').onchange=()=>{state.pages[index].stamp_checked=$('stamp').checked;changed()};$('signature').onchange=()=>{state.pages[index].signature_checked=$('signature').checked;changed()};$('note').oninput=()=>{state.pages[index].note=$('note').value;changed()};$('reviewer').onchange=()=>{state.reviewer=$('reviewer').value.trim();if(!state.reviewer)state.pages.forEach(p=>p.review_status='unreviewed');save();renderList()};
+$('reviewed').onclick=()=>{let p=state.pages[index];if(!state.reviewer.trim()||!p.stamp_checked||!p.signature_checked){message('Укажите проверяющего и подтвердите просмотр обоих классов');return}p.review_status='first_review';save();renderList()};
+$('prev').onclick=()=>{if(index>0){index--;show()}};$('next').onclick=()=>{if(index<data.pages.length-1){index++;show()}};$('zoom').oninput=zoom;window.onresize=zoom;
+$('export').onclick=()=>{try{validate(state);const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='sealsign-review.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);dirty=false;message('JSON подготовлен к скачиванию. Проверьте файл в папке загрузок.')}catch(e){message(e.message)}};
+$('restore').onchange=async e=>{const file=e.target.files[0];if(!file)return;try{if(file.size>20*1024*1024)throw Error('Файл слишком большой');const next=validate(JSON.parse(await file.text()));if(!confirm('Заменить текущие правки данными из файла?'))return;state=next;save();show()}catch(e){message('Импорт отклонён: '+e.message)}e.target.value=''};
+window.addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue=''}});message('Начните с просмотра обоих классов. Исходные рамки ещё не подтверждены.');show();
+</script></html>
