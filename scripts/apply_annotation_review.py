@@ -74,6 +74,11 @@ def apply(bundle, review, output):
             (target / "unreviewed-yolo" / f"{page_id}.txt").write_text(
                 to_yolo(edit["objects"], im["width"], im["height"])
             )
+        if (target / "review-source.json").exists():
+            history = target / "review-history"
+            history.mkdir(exist_ok=True)
+            previous_review = target / "review-source.json"
+            shutil.copy2(previous_review, history / (sha256(previous_review) + ".json"))
         shutil.copy2(review, target / "review-source.json")
         report = json.loads((target / "report.json").read_text())
         report.update(

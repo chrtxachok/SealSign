@@ -77,3 +77,11 @@ def test_apply_edits_keeps_source_and_unreviewed_state(tmp_path):
     assert json.loads((out / "report.json").read_text())["objects_by_class"] == {"1": 1}
     with pytest.raises(ValueError, match="exists"):
         module.apply(root, review, out)
+
+    data["manifest_sha256"] = sha256(out / "manifest.jsonl")
+    data["annotations_sha256"] = sha256(out / "annotations.json")
+    original_review_hash = sha256(review)
+    review.write_text(json.dumps(data))
+    third = tmp_path / "third"
+    module.apply(out, review, third)
+    assert (third / "review-history" / f"{original_review_hash}.json").is_file()
