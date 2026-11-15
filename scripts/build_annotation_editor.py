@@ -40,6 +40,7 @@ def build(bundle, output):
                 "sha256": page["normalized_sha256"],
                 "width": image["width"],
                 "height": image["height"],
+                "note": page.get("first_review", {}).get("note", ""),
                 "image": "data:image/png;base64," + base64.b64encode(raw).decode(),
                 "objects": [
                     {"category_id": obj["category_id"], "bbox": obj["bbox"]}

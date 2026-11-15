@@ -1,0 +1,10 @@
+{
+  "pages": 50,
+  "first_review_pages": 0,
+  "objects": 103,
+  "accepted_for_training": false,
+  "previous_objects": 84,
+  "review_sha256": "59df583ca8814f726709ef5b67fbdde4198a6cda27310264e36d51bf3e46da04",
+  "source_annotations_sha256": "9d797dce4c44e492eb277ba139a6616417da25f72f7deb15c794a9fae85323b2",
+  "output_annotations_sha256": "302bf0745ba52705b385ee2677af40f8ec58eff950b8aa903bebca7f8e9c8d46"
+}

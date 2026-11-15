@@ -19,7 +19,7 @@
 'use strict';
 const data=JSON.parse(document.getElementById('dataset').textContent), $=id=>document.getElementById(id);
 const key='sealsign-editor-'+data.manifest_sha256;let index=0,selected=-1,start=null,dirty=false;
-let state={schema_version:'sealsign-review-v1',manifest_sha256:data.manifest_sha256,annotations_sha256:data.annotations_sha256,reviewer:'',accepted_for_training:false,pages:data.pages.map(p=>({page_id:p.page_id,image_sha256:p.sha256,width:p.width,height:p.height,objects:p.objects,stamp_checked:false,signature_checked:false,review_status:'unreviewed',note:''}))};
+let state={schema_version:'sealsign-review-v1',manifest_sha256:data.manifest_sha256,annotations_sha256:data.annotations_sha256,reviewer:'',accepted_for_training:false,pages:data.pages.map(p=>({page_id:p.page_id,image_sha256:p.sha256,width:p.width,height:p.height,objects:p.objects,stamp_checked:false,signature_checked:false,review_status:'unreviewed',note:p.note||''}))};
 const canvas=$('canvas'),ctx=canvas.getContext('2d');let currentImage=null;
 function message(text){$('status').textContent=text}
 function validate(candidate){
