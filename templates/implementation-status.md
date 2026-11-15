@@ -349,3 +349,20 @@
   `.venv/bin/ruff format --check .`, `.venv/bin/pytest -q` (53 passed) и
   `git diff --check` — passed. S04 по-прежнему blocked: нет принятого чистого
   корпуса и полного QC обоих классов; обучение и новый split не проводились.
+
+
+## S04 — 15.11.2026, проверка дополнительного источника
+
+- Пользователь поручил закончить S04 и подтвердил минимум 5 000. Выполнены
+  публичный поиск Kaggle и полный metadata inventory дополнительного источника
+  dablsi/stamp-recognition-documents-with-stamps v1. Команда:
+  `.venv/bin/python scripts/audit_kaggle_metadata.py dablsi/stamp-recognition-documents-with-stamps --raw-dir artifacts/data-audit/research-20261115/inventory --output reports/data/stamp-recognition-metadata-audit.json`.
+  Exit 0, 20 страниц list; версии view до/после совпали, сумма байтов list
+  совпала с view. Архив и изображения этого источника не скачивались.
+- 3 919 PNG: по именам каталогов 1 696 отдельных изображений печатей и
+  2 223 документа; ещё 1 AVI. Готовых labels не найдено, описание API пустое.
+  Декларация CC BY 4.0 по API не подтверждает provenance каждого файла.
+- Дополнение не принимается как размеченный корпус. Критерии S04 остаются
+  невыполненными: нет принятого корпуса ≥5 000 с полной проверкой обоих классов
+  и независимым вторым просмотром. Подтверждение двух исправленных рамок
+  не покрывает остальную разметку. Group split и обучение не запускались.

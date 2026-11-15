@@ -1,0 +1,156 @@
+{
+  "observed_at_utc": "2026-11-15T03:01:58.111291+00:00",
+  "scope": "Public API metadata and complete listings; no image or label QC",
+  "datasets": [
+    {
+      "ref": "dablsi/stamp-recognition-documents-with-stamps",
+      "metadata_url": "https://www.kaggle.com/api/v1/datasets/view/dablsi/stamp-recognition-documents-with-stamps",
+      "version": 1,
+      "last_updated": "2023-07-08T20:19:37.437Z",
+      "license_name_from_api": "Attribution 4.0 International (CC BY 4.0)",
+      "metadata_total_bytes": 17104293796,
+      "listing_complete": true,
+      "listing_version_note": "List endpoint is unversioned; view checked before and after",
+      "file_entries": 3920,
+      "listed_bytes": 17104293796,
+      "image_entries": 3919,
+      "images_by_upstream_split": {
+        "unspecified": 3919
+      },
+      "images_by_directory": {
+        "documents 01/documents 01/dataset 100 first (colored doc + blue stamps)/bonus (real innopolis documents)": 24,
+        "documents 01/documents 01/dataset 100 first (colored doc + blue stamps)/only stemps": 49,
+        "documents 01/documents 01/dataset 100 first (colored doc + blue stamps)/tables": 56,
+        "documents 01/documents 01/dataset 100 first (colored doc + blue stamps)/text only": 32,
+        "documents 01/documents 01/dataset 100 first (colored doc + blue stamps)/with pictures": 12,
+        "documents 01/documents 01/dataset 750 bad printed(scan doc + black stamps)/bad": 200,
+        "documents 01/documents 01/dataset 750 bad printed(scan doc + black stamps)/not idial": 150,
+        "documents 01/documents 01/dataset 750 bad printed(scan doc + black stamps)/terrible": 200,
+        "documents 01/documents 01/dataset 750 bad printed(scan doc + black stamps)/worse": 200,
+        "documents 02/documents 02/Dataset 1000 (scaned doc + black stamps)": 1000,
+        "documents 02/documents 02/fast dataset 300 (scan doc+ colored stamps)": 300,
+        "stamps/stamps/Oval Stamps": 100,
+        "stamps/stamps/Oval Stamps 02": 162,
+        "stamps/stamps/Stamps 200": 211,
+        "stamps/stamps/mixed stamps 1214": 1218,
+        "stamps/stamps/square stamps": 5
+      },
+      "distinct_image_name_prefixes_before_rf": 2720,
+      "original_pages_verified": false,
+      "deduplication_performed": false,
+      "accepted_for_training": false,
+      "evidence": [
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/view/dablsi/stamp-recognition-documents-with-stamps",
+          "raw_file": "view-before.json",
+          "sha256": "7968092ff1ee1a93196a322308f842e8171707ea1eab83c1d897c9779fdfb017"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/dablsi/stamp-recognition-documents-with-stamps",
+          "raw_file": "files-000.json",
+          "sha256": "546c67b9672cfe4e1610036e44360254169dc0c4081bf34f6724dcfb86841c2b"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/dablsi/stamp-recognition-documents-with-stamps",
+          "raw_file": "files-001.json",
+          "sha256": "9ff76febc5603b1bee14d90af47e4d715faa4a726e07a8a16894df01cca01f69"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/dablsi/stamp-recognition-documents-with-stamps",
+          "raw_file": "files-002.json",
+          "sha256": "b85e866552934a47b995a2bc92b756913aa53cffea8fc93a50734c945f37f5dd"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/dablsi/stamp-recognition-documents-with-stamps",
+          "raw_file": "files-003.json",
+          "sha256": "496e7a1e19ad62696aa5148adc140333547a6aaaae1264b07e9b1faf8dbadc88"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/dablsi/stamp-recognition-documents-with-stamps",
+          "raw_file": "files-004.json",
+          "sha256": "b53071dfefc34099e140a845162d5c0ffb0aca25a477b0d8760c0ce0b3b73065"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/dablsi/stamp-recognition-documents-with-stamps",
+          "raw_file": "files-005.json",
+          "sha256": "4a2a090374c44de2f8104e52a9a969e45633fb55147c9918e3f325857b7a1970"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/dablsi/stamp-recognition-documents-with-stamps",
+          "raw_file": "files-006.json",
+          "sha256": "2f467ec3b916dbb40825f50ca4b3eda1da85ebc122d896b4822fe90f842e2f82"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/dablsi/stamp-recognition-documents-with-stamps",
+          "raw_file": "files-007.json",
+          "sha256": "41b509964ea733055a922a18b7be3fed6d7f7ed49e89e6f59c9213c0e66f22fc"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/dablsi/stamp-recognition-documents-with-stamps",
+          "raw_file": "files-008.json",
+          "sha256": "69788457b2bd820ac601eb9dba997a61cf1dc31fd6629e62a0698e779add2601"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/dablsi/stamp-recognition-documents-with-stamps",
+          "raw_file": "files-009.json",
+          "sha256": "944727c6c74d804d3025c76e47c437adfce509ec282488c9fa157676964e9ee9"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/dablsi/stamp-recognition-documents-with-stamps",
+          "raw_file": "files-010.json",
+          "sha256": "5f86123be68143f92305eac4a0a9b55029cc08482376c7367283aa464a82e3ef"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/dablsi/stamp-recognition-documents-with-stamps",
+          "raw_file": "files-011.json",
+          "sha256": "75ee3ac3dc97380ff581e824818ddc78c54dd92dc90e8e8c540231df900f93f6"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/dablsi/stamp-recognition-documents-with-stamps",
+          "raw_file": "files-012.json",
+          "sha256": "3ffc8952fa67f72e38c360715a149720ed38f057c267f10901093d5c00b9e8e5"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/dablsi/stamp-recognition-documents-with-stamps",
+          "raw_file": "files-013.json",
+          "sha256": "38cb1619e0a78dba2f26a2b0786edae819fa7c865e79166fe2f9470c6fb85a56"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/dablsi/stamp-recognition-documents-with-stamps",
+          "raw_file": "files-014.json",
+          "sha256": "e09bb81fb9bc2b726725a9c2df2228fb27decd3d6754885217bb3fefe8bc53e5"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/dablsi/stamp-recognition-documents-with-stamps",
+          "raw_file": "files-015.json",
+          "sha256": "b4c8bf09c30efb88e951318bf4563089f04c1adfd96cff9bce38109e2bbb0a6e"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/dablsi/stamp-recognition-documents-with-stamps",
+          "raw_file": "files-016.json",
+          "sha256": "4c84f762f2ba0efb1336715cf7aafed46d3a70e91306749e1cd3a44b700154f2"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/dablsi/stamp-recognition-documents-with-stamps",
+          "raw_file": "files-017.json",
+          "sha256": "1e29edea6a7d69ecedb68d724d8317fa33e49d4651482fa6b8ca74a469494a68"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/dablsi/stamp-recognition-documents-with-stamps",
+          "raw_file": "files-018.json",
+          "sha256": "609434493e0820fe4e51232956018b9134482d7ea7ede879d9db378509bec682"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/list/dablsi/stamp-recognition-documents-with-stamps",
+          "raw_file": "files-019.json",
+          "sha256": "c16708a6599fbdddeca0e0d269198f5fd0eb4724818081c2f61209b0d915df99"
+        },
+        {
+          "endpoint": "https://www.kaggle.com/api/v1/datasets/view/dablsi/stamp-recognition-documents-with-stamps",
+          "raw_file": "view-after.json",
+          "sha256": "7968092ff1ee1a93196a322308f842e8171707ea1eab83c1d897c9779fdfb017"
+        }
+      ]
+    }
+  ]
+}
