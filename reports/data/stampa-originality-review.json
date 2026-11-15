@@ -1,0 +1,27 @@
+{
+  "source_revision": "998243bde1262ccb57ca28ddd6868b05fd1ddf49",
+  "archive_name_inventory": {
+    "train": {
+      "all_images": 6283,
+      "stampa_images": 369
+    },
+    "val": {
+      "all_images": 785,
+      "stampa_images": 46
+    },
+    "test": {
+      "all_images": 786,
+      "stampa_images": 46
+    }
+  },
+  "stampa_total": 461,
+  "visually_inspected_batch001_stampa_pages": 8,
+  "quarantine_candidates": 8,
+  "all_stampa_files_declared_synthetic": false,
+  "independent_originals_proven": false,
+  "accepted_for_training": false,
+  "scope": "Archive filenames counted only; no new val/test visual inspection. Eight batch001 pages show rotation/noise and rectangular stamp-fragment boundaries. The remaining component needs provenance audit.",
+  "component_originality_count_status": "on_hold_pending_provenance",
+  "files_outside_component_before_global_dedup": 7393,
+  "files_outside_component_are_not_proven_independent_originals": true
+}

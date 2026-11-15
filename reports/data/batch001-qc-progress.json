@@ -59,28 +59,28 @@
     95,
     98
   ],
-  "signature_boxes_added": 100,
-  "signature_boxes_added_this_checkpoint": 2,
+  "signature_boxes_added": 106,
+  "signature_boxes_added_this_checkpoint": 6,
   "source_objects": 144,
-  "draft_objects": 258,
-  "stamp_boxes": 158,
-  "signature_boxes": 100,
+  "draft_objects": 273,
+  "stamp_boxes": 167,
+  "signature_boxes": 106,
   "final_qc_pages": 0,
   "group_candidate_sets": 7,
   "accepted_for_training": false,
-  "output_annotations_sha256": "db008e2117803c4b2cb2b898dbb3d29e189338c8e657521d4ead14fbc7053c34",
+  "output_annotations_sha256": "d15643e609f7962bffe8b6cdaea16aed0476dcd79b8c07324d71b0749d99f6ea",
   "limitations": [
     "First review is recorded separately; final QC has not been granted",
-    "33 pages remain unreviewed, including 8 quarantine candidates; ambiguous marks and printed seals need adjudication",
-    "Original source count, component rights and model split remain unresolved",
+    "One page is held for illegible small marks and eight pages are quarantine candidates",
+    "Seven grouping sets reviewed inside batch001 only; global original-page count, component rights and model split remain unresolved",
     "Large-page overlay inspection used a scaled view with targeted native crops, not exhaustive native-pixel inspection"
   ],
-  "stamp_boxes_added_this_checkpoint": 10,
-  "first_review_pages": 67,
+  "stamp_boxes_added_this_checkpoint": 8,
+  "first_review_pages": 91,
   "stamp_boxes_split_net_this_checkpoint": 1,
   "first_review_empty_pages": 16,
   "quarantine_candidate_pages": 8,
-  "signature_boxes_refined_this_checkpoint": 4,
+  "signature_boxes_refined_this_checkpoint": 0,
   "service_stamp_policy": "included-v2-delegated-agent-decision",
   "stamp_overlay_inspection_pages": [
     1,
@@ -183,5 +183,10 @@
     98,
     99,
     100
-  ]
+  ],
+  "stamp_boxes_refined_this_checkpoint": 1,
+  "hold_pages": 1,
+  "visually_verified_same_original_background_groups": 4,
+  "first_review_independent_original_upper_bound": 87,
+  "first_review_independent_original_upper_bound_note": "91 first-review files minus 4 additional variants of the same original backgrounds. This is only an upper bound, not 87 accepted/proven originals."
 }
