@@ -1,25 +1,34 @@
 {
-  "reviewed_components": 54,
-  "remaining_candidate_components": 529,
-  "reviewed_files": 862,
-  "background_groups": 55,
-  "additional_variants": 807,
-  "groups_crossing_upstream_archives": 51,
-  "reviewed_candidate_edges": 6224,
+  "reviewed_components": 66,
+  "remaining_candidate_components": 517,
+  "reviewed_files": 1018,
+  "background_groups": 67,
+  "additional_variants": 951,
+  "groups_crossing_upstream_archives": 61,
+  "reviewed_candidate_edges": 7127,
   "different_background_candidate_edges": 130,
-  "review_sha256": "7686f7a545fedc47b8da29a26f5238fbc2696b54c9e69770fae5184d9b8b1ab8",
+  "review_sha256": "0d990778b3549c6eddf485af6635c3a866f08940ce6a644ac7a8f9cb464437cb",
   "accepted_for_training": false,
   "global_original_count_established": false,
   "canonical_groups_or_split_modified": false,
-  "selection": "Fifty-four largest candidate components, ties ordered by stable component_id; not a random corpus sample",
+  "selection": "Sixty-six largest candidate components, ties ordered by stable component_id; not a random corpus sample",
   "review_scope": "Visual original/background identity only, including upstream splits; no annotation or model tuning",
   "original_count_vs_leakage_family": "Two distinct originals in the largest component share a template family; original identity and leakage grouping remain separate",
   "candidate_graph_components_split": 1,
   "all_components_reviewed": false,
   "previous_checkpoint": {
-    "components": 42,
-    "files": 699,
-    "background_groups": 43,
-    "additional_variants": 656
+    "components": 54,
+    "files": 862,
+    "background_groups": 55,
+    "additional_variants": 807
+  },
+  "progress": {
+    "scope": "Visual review of the fixed candidate-component queue only; not overall S04 completion",
+    "completed": 66,
+    "total": 583,
+    "percent": 11.32,
+    "previous_percent": 9.26,
+    "overall_s04_percent": null,
+    "overall_s04_percent_reason": "Remaining annotation, provenance and independent-page acquisition workload is not established"
   }
 }
