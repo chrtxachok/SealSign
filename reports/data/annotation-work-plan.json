@@ -1,0 +1,11 @@
+{
+  "source_revision": "998243bde1262ccb57ca28ddd6868b05fd1ddf49",
+  "train_pages": 6283,
+  "pilot_excluded": 50,
+  "remaining_train_pages": 6233,
+  "annotation_work_batches": 63,
+  "batch_size": 100,
+  "last_batch_size": 33,
+  "model_split_created": false,
+  "accepted_for_training": false
+}
