@@ -1,0 +1,15 @@
+{
+  "batch": "001",
+  "overview_pages": 40,
+  "full_resolution_pages": [
+    4,
+    10,
+    11
+  ],
+  "signature_boxes_added": 2,
+  "source_objects": 144,
+  "draft_objects": 146,
+  "final_qc_pages": 0,
+  "group_candidates": 2,
+  "accepted_for_training": false
+}
