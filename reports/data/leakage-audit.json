@@ -1,0 +1,31 @@
+{
+  "schema_version": "sealsign-leakage-audit-v1",
+  "inputs": [
+    {
+      "bundle": "sig-stamps-v1",
+      "manifest_sha256": "d41609f98e391dd607cdea95299735b13540bfce8aed1b98802339c626e9cd71",
+      "annotations_sha256": "6f70d9551492df1aff01aedf9bdd5d50aac27692b02a6821abe97f93e87f40a5"
+    },
+    {
+      "bundle": "composite-labels-v1",
+      "manifest_sha256": "0011868b7f70e676c97a954f8f959822b742b3354ec1e6fb0e23392aa2175607",
+      "annotations_sha256": "1f40f98c3b8c455e572b56bf5af0d4727c2cd0f5bd0c1146a16b5cd84c8f15ac"
+    }
+  ],
+  "pages_examined": 3554,
+  "source_exact_duplicate_groups": 15,
+  "same_archive_prefix_groups": 633,
+  "threshold": 2,
+  "candidate_pairs": 1770,
+  "counts": {
+    "exact_pairs": 3,
+    "same_prefix_pairs": 1545,
+    "same_normalized_pairs": 3,
+    "dhash_candidate_pairs": 225,
+    "cross_source_candidate_pairs": 115,
+    "prefix_cross_split_pairs": 1545,
+    "exact_cross_split_pairs": 3
+  },
+  "near_duplicate_reviewed": false,
+  "accepted_for_training": false
+}

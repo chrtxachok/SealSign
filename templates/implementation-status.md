@@ -9,7 +9,7 @@
 | S01 Каркас | done | Python 3.11.17 Linux: clean uv sync --locked; CLI help/version; ruff; 6 tests passed; подробности ниже | — | remote CI и Windows ещё не запускались; далее S02 |
 | S02 Аудит данных | blocked | reports/data/dataset-card.md; signverod-metadata-audit.json; kaggle-metadata-audit.json; два воспроизводимых скрипта | f10d848; продолжение см. запись ниже | Два ZIP v1 получены, CRC/SHA-256 проверены; нет принятого корпуса ≥5 000, прав всех компонентов и пилота |
 | S03 Импорт | blocked | docs/14; src/sealsign/data; import-verification.json; 46 tests passed | см. запись S03 | код и исследовательские прогоны готовы; вход S02 не принят, исключения требуют QC |
-| S04 QC и split | blocked | docs/15-qc-pilot.md; две приватные выборки по 50 страниц seed=42 | см. запись S04 | нужны принятый корпус, независимый просмотр, устранение спорных случаев и групповой split |
+| S04 QC и split | blocked | docs/15-qc-pilot.md; два пилота по 50 страниц; исследовательский аудит пересечений docs/16 | см. запись S04 | нужны принятый корпус, независимый просмотр, устранение спорных случаев и групповой split |
 | S05 Обучение | todo | — | — | вход: принятый split и GPU |
 | S06 Core/CLI | todo | — | — | вход: bundle для полной приёмки |
 | S07 API | todo | — | — | вход: core |
@@ -262,3 +262,30 @@
   Оба пилота упакованы в отдельные приватные ZIP под artifacts/data-qc/;
   в каждом есть README, исходные страницы, рамки и пустой review-template.csv.
   S04 остаётся blocked: просмотр этих страниц ещё не выполнен.
+
+
+## S04 — 15.11.2026, диагностика пересечений
+
+- По поручению пользователя продолжена доступная работа S04 при ожидающемся
+  человеческом просмотре. Добавлены scripts/audit_leakage.py, docs/16-leakage-audit.md,
+  tests/test_leakage_audit.py и агрегированный reports/data/leakage-audit.json.
+- Из двух локальных импортированных bundle проверены checksums и 3 554 PNG;
+  исключённые 8 страниц и неимпортированные 16 000 RVL-CDIP не исследовались.
+  Входные хеши, параметры и полная команда записаны в отчёте и docs/16.
+- На разных исходных split одного архива: 3 пары точных исходных SHA-256 в
+  composite и 1 545 пар совпадающих префиксов `.rf.` в Sig & Stamps (176 page_id).
+  Префикс — лишь эвристика: пары не являются подтверждёнными дубликатами.
+- dHash grayscale 9×8, Hamming ≤2: 225 кандидатных пар; 115 между источниками.
+  Категории пересекаются, похожие документы могут не быть дублями, часть реальных
+  дублей может не обнаружиться. Детальный CSV с page_id — только gitignored
+  artifacts/data-qc/leakage-audit-v1/. Ни один кандидат не помечен проверенным.
+- Проверки: Python 3.12.14, Pillow 13.0.0; реальная команда docs/16 exit 0,
+  `.venv/bin/ruff check .` и `.venv/bin/ruff format --check .` — passed,
+  `.venv/bin/pytest -q` — 51 passed, `git diff --check` — passed.
+  Тестируются точные пересечения, одинаковый смысл valid/val, изменение PNG
+  и неразрешение обучения. Источники и приватные изображения не коммитятся.
+- S04 остаётся blocked: проверки визуальной разметки и прав, разрешение candidate
+  pairs, группировка всех страниц и новый split не завершены. Список candidate pairs
+  не содержит внутрисплитных пар одного источника и не является готовым split.
+- Git: `research: audit dataset leakage candidates`, push в work; автор
+  chrtxachok <egormalanin425@gmail.com>.
