@@ -26,9 +26,36 @@
     "Candidate graph and dHash may miss duplicates or common document families.",
     "Selection contains no first-review empty pages; negatives require separate selection and QC."
   ],
-  "repeat_overview_pages": 36,
+  "repeat_overview_pages": 69,
   "repeat_overview_total": 69,
   "repeat_overview_scope": "Same reviewer; overview only, not independent final QC",
-  "repeat_overview_issues": 3,
-  "review_correction_sha256": "c912f5f3e9fb6be6127b89c2d81a5df984f0fffb711bdb0edeae93ff59b8668b"
+  "repeat_overview_issues": 6,
+  "review_correction_sha256": "c912f5f3e9fb6be6127b89c2d81a5df984f0fffb711bdb0edeae93ff59b8668b",
+  "provisional_split": {
+    "status": "exploratory_not_accepted_for_training",
+    "seed": 42,
+    "groups": {
+      "train": 42,
+      "val": 9,
+      "test": 9
+    },
+    "pages": {
+      "train": 46,
+      "val": 14,
+      "test": 9
+    },
+    "stamp_boxes": {
+      "train": 102,
+      "val": 26,
+      "test": 23
+    },
+    "signature_boxes": {
+      "train": 76,
+      "val": 11,
+      "test": 14
+    },
+    "exact_hash_cross_split_pairs": 0,
+    "assignment_sha256": "380bb13d0fabc120c37f74bde493b7aaa7a313628ff6d728f1a990c570581c97",
+    "warning": "Provisional only; QC and provenance unresolved. Do not use as final holdout."
+  }
 }
