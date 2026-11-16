@@ -1,0 +1,13 @@
+{
+  "archive_sha256": "85e289b3635b2e17937e201e567d98097173a7b8116daa72dd9e9fb61d738597",
+  "sample_sha256": "9be71a614b94346d8daa44743b69fb11225bca548ca4ccde7ed4d53d8706e90a",
+  "draft_sha256": "e1462ce88ba065576ac6d1f318887bc4371870c804018e3b182f343b4effd88f",
+  "train_sample_pages": 100,
+  "seed": 42,
+  "overview_pages_seen": 100,
+  "clearly_visible_signature_pages_at_least": 2,
+  "draft_signature_boxes": 2,
+  "other_pages": "unreviewed; not confirmed negatives",
+  "full_qc_complete": false,
+  "accepted_for_training": false
+}
