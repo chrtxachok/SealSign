@@ -3,8 +3,8 @@
   "source_archive_sha256": "85e289b3635b2e17937e201e567d98097173a7b8116daa72dd9e9fb61d738597",
   "sample_sha256": "9be71a614b94346d8daa44743b69fb11225bca548ca4ccde7ed4d53d8706e90a",
   "pilot_pages": 100,
-  "first_review_pages": 60,
-  "first_review_empty_pages": 58,
+  "first_review_pages": 72,
+  "first_review_empty_pages": 70,
   "first_review_signature_pages": 2,
   "first_review_stamp_boxes": 0,
   "first_review_signature_boxes": 2,
@@ -99,6 +99,24 @@
       57,
       58,
       59
+    ]
+  },
+  "sixth_checkpoint": {
+    "subset_zip_sha256": "7d6ec3a23269578879bff6f14b64c4c374a735edcf801ab034f9457e53336bfd",
+    "review_sha256": "8f0f1798acec6344137c9d3dd9283e89070a0d0dd7743496bb4aa52f8354ae76",
+    "reviewed_sample_positions": [
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71
     ]
   }
 }
