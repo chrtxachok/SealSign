@@ -1,0 +1,140 @@
+{
+  "schema_version": "sealsign-training-readiness-v1",
+  "bundles": {
+    "mapo80_pilot50": {
+      "pages": 50,
+      "first_review_pages": 0,
+      "canonical_review_status_counts": {
+        "unreviewed": 50
+      },
+      "annotation_boxes_by_class": {
+        "1": 32,
+        "0": 87
+      },
+      "pages_with_group_id": 0,
+      "manifest_sha256": "2853fe5decf7a46fc61b0e4e3e6f8c4ea1fa8f2530fde8b1e19c64fd765259d4",
+      "annotations_sha256": "267f93b1bfdf736e429ffce4449bc96be9f2cb87572229bd9032f06026fa8ae7",
+      "accepted_for_training": false
+    },
+    "mapo80_batch001": {
+      "pages": 100,
+      "first_review_pages": 91,
+      "canonical_review_status_counts": {
+        "unreviewed": 100
+      },
+      "annotation_boxes_by_class": {
+        "1": 106,
+        "0": 167
+      },
+      "pages_with_group_id": 0,
+      "manifest_sha256": "47a3eebea836614dabfc46885511006542447489b54b561424dc62cbf60cee93",
+      "annotations_sha256": "d15643e609f7962bffe8b6cdaea16aed0476dcd79b8c07324d71b0749d99f6ea",
+      "accepted_for_training": false
+    },
+    "doclaynet_001": {
+      "pages": 12,
+      "first_review_pages": 12,
+      "canonical_review_status_counts": {
+        "unreviewed": 12
+      },
+      "annotation_boxes_by_class": {
+        "1": 2
+      },
+      "pages_with_group_id": 0,
+      "manifest_sha256": "e7d5217c0d953ee07187e74ab5d5b0596d109f2edbdb992b68dc868eb8888572",
+      "annotations_sha256": "788eeae09c47e673327feb8ff1dd20b94cbd14c892fde9ddc196caded0f36d24",
+      "accepted_for_training": false
+    },
+    "doclaynet_002": {
+      "pages": 12,
+      "first_review_pages": 12,
+      "canonical_review_status_counts": {
+        "unreviewed": 12
+      },
+      "annotation_boxes_by_class": {},
+      "pages_with_group_id": 0,
+      "manifest_sha256": "797008e81804571b83ade2f106b56d450985215bb15c4cc82c9c1eef52c469dd",
+      "annotations_sha256": "fbb4bdfde923866cf712120e3daa03c8fc8044858960105419e8a11a7921d39b",
+      "accepted_for_training": false
+    },
+    "doclaynet_024-035": {
+      "pages": 12,
+      "first_review_pages": 12,
+      "canonical_review_status_counts": {
+        "unreviewed": 12
+      },
+      "annotation_boxes_by_class": {},
+      "pages_with_group_id": 0,
+      "manifest_sha256": "29c416484725911557468779259b38f90f3b7b9a98a055ac23d2f7836f559ae7",
+      "annotations_sha256": "a33d3a2198994b72e9befabc51b05e0fcadadf493b8ebcee5cd86e4b8fc2deaf",
+      "accepted_for_training": false
+    },
+    "doclaynet_036-047": {
+      "pages": 12,
+      "first_review_pages": 12,
+      "canonical_review_status_counts": {
+        "unreviewed": 12
+      },
+      "annotation_boxes_by_class": {},
+      "pages_with_group_id": 0,
+      "manifest_sha256": "d4073b77d9e5856332b9020ab5fb7af0aa2b13f01bc7f56b600a62cb6f8fdadc",
+      "annotations_sha256": "0394c6b24bb87cd7428b4a375597b7d1fae6f164c63e63385694d506e7928da1",
+      "accepted_for_training": false
+    },
+    "doclaynet_048-059": {
+      "pages": 12,
+      "first_review_pages": 12,
+      "canonical_review_status_counts": {
+        "unreviewed": 12
+      },
+      "annotation_boxes_by_class": {},
+      "pages_with_group_id": 0,
+      "manifest_sha256": "2c7af6788fe5ddff247dbbbcc1c482ac58b278284e1452c61b1df1249359c164",
+      "annotations_sha256": "bc526267cc80820278f2e89d969489e5e880dd74b780d29334c65b0b66a1a5e2",
+      "accepted_for_training": false
+    },
+    "doclaynet_060-071": {
+      "pages": 12,
+      "first_review_pages": 12,
+      "canonical_review_status_counts": {
+        "unreviewed": 12
+      },
+      "annotation_boxes_by_class": {},
+      "pages_with_group_id": 0,
+      "manifest_sha256": "de6a1be2b75eac6007fc12a9952e58415a3128e8a7529ae62fffb059d5fd8fe8",
+      "annotations_sha256": "e9002c0c7a92a3a3acb82e8bf765e9524ee8b4543d21de595568c21e6f88cc20",
+      "accepted_for_training": false
+    },
+    "doclaynet_072-083": {
+      "pages": 12,
+      "first_review_pages": 12,
+      "canonical_review_status_counts": {
+        "unreviewed": 12
+      },
+      "annotation_boxes_by_class": {},
+      "pages_with_group_id": 0,
+      "manifest_sha256": "bd781a8bcb9936c649a6000b35b007e76c1aedfa1710db3285b5594d78d01af9",
+      "annotations_sha256": "0c0f809f48257a9d49aca4b909e83152c6e631cdd6c081ec700108e45df0ad6b",
+      "accepted_for_training": false
+    },
+    "doclaynet_084-100": {
+      "pages": 16,
+      "first_review_pages": 16,
+      "canonical_review_status_counts": {
+        "unreviewed": 16
+      },
+      "annotation_boxes_by_class": {},
+      "pages_with_group_id": 0,
+      "manifest_sha256": "d4281aec91a6545990499244f2b2077089c5859c56945db61e99e34c92077dfd",
+      "annotations_sha256": "9787b9f26442de26262b150c522df93a49c9fdc7140987424c79b627dcdee912",
+      "accepted_for_training": false
+    }
+  },
+  "python_packages_available": {
+    "torch": false,
+    "torchvision": false,
+    "ultralytics": false
+  },
+  "interpretation": "Bundle counts may overlap and do not establish unique or accepted pages.",
+  "accepted_for_training": false
+}
