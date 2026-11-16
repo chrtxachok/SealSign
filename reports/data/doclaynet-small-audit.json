@@ -1,0 +1,33 @@
+{
+  "source_revision": "b61d29f477163034001472614dc97fb9614dddea",
+  "archive_sha256": "85e289b3635b2e17937e201e567d98097173a7b8116daa72dd9e9fb61d738597",
+  "zip_crc_verified": true,
+  "archive_entries": 2412,
+  "images": 804,
+  "split_counts": {
+    "test": 49,
+    "train": 691,
+    "val": 64
+  },
+  "decoded_images": 804,
+  "dimensions": {
+    "(1025, 1025)": 804
+  },
+  "category_counts": {
+    "financial_reports": 246,
+    "scientific_articles": 147,
+    "laws_and_regulations": 134,
+    "manuals": 163,
+    "patents": 72,
+    "government_tenders": 42
+  },
+  "distinct_image_sha256": 804,
+  "duplicate_image_sha256_groups": 0,
+  "distinct_source_filename_and_page": 804,
+  "duplicate_source_filename_and_page_groups": 0,
+  "exact_image_matches_mapo80": 0,
+  "pilot_train_sample": 30,
+  "pilot_seed": 42,
+  "target_boxes_verified": false,
+  "accepted_for_training": false
+}
