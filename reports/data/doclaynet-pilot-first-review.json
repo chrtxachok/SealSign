@@ -1,0 +1,30 @@
+{
+  "schema_version": "sealsign-doclaynet-pilot-first-review-v1",
+  "source_archive_sha256": "85e289b3635b2e17937e201e567d98097173a7b8116daa72dd9e9fb61d738597",
+  "sample_sha256": "9be71a614b94346d8daa44743b69fb11225bca548ca4ccde7ed4d53d8706e90a",
+  "subset_zip_sha256": "574ea73e66f8d799f5551ffa81d90ee26ca975f2d8e66d7729a75a3d55489741",
+  "review_sha256": "9d0c581c8ef6b694ca30bc829b584648f8ac4ab8f5dd55414c88d0ae61cb1be1",
+  "reviewed_sample_positions": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    23,
+    88
+  ],
+  "pilot_pages": 100,
+  "first_review_pages": 12,
+  "first_review_empty_pages": 10,
+  "first_review_signature_pages": 2,
+  "first_review_stamp_boxes": 0,
+  "first_review_signature_boxes": 2,
+  "independent_final_qc_pages": 0,
+  "accepted_for_training": false,
+  "group_split_assigned": false
+}
