@@ -8,7 +8,7 @@ from pathlib import Path
 
 from sealsign.data.validator import validate_bundle
 
-b = Path("artifacts/annotation-batches/batch-001-agent-v6")
+b = Path("artifacts/annotation-batches/batch-001-agent-v7")
 validate_bundle(b)
 pages = [json.loads(x) for x in (b / "manifest.jsonl").read_text().splitlines()]
 coco = json.loads((b / "annotations.json").read_text())

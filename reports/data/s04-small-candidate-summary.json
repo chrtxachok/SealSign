@@ -1,14 +1,14 @@
 {
   "schema_version": "sealsign-s04-candidate-summary-v1",
-  "candidate_groups_sha256": "c4ba83f0497f27752ae4e2bd8e99713eb010967afb53d5e31f62dd83233b771c",
-  "source_manifest_sha256": "47a3eebea836614dabfc46885511006542447489b54b561424dc62cbf60cee93",
-  "source_annotations_sha256": "d15643e609f7962bffe8b6cdaea16aed0476dcd79b8c07324d71b0749d99f6ea",
+  "candidate_groups_sha256": "6d413a78563b75730491251ec81a17fa2b8e1208f61933aa6fdc5344c6e1c8bb",
+  "source_manifest_sha256": "3b1e892ea16d480d9ead42f6a2db291dc9e7e605eb02a77627a87d8502961417",
+  "source_annotations_sha256": "853f088b1c98fa15326ad8116c28c1975c87ac52d58e0d69cf6aaae97a4a3ef6",
   "queue_sha256": "cddf759003e09ae26fc266400d9b70ed1b7b8279d9f0e50185b020b3a2bef8d5",
   "links_sha256": "5cece5861d773ff0ba6ecdb247951128774ff53b1d89c6c73db3154aa385d547",
   "batch_group_review_sha256": "199d13c3d9a458dff727562eca9977dcd7e23edbb21a5885f94bc35fc16cfca6",
   "selected_pages": 69,
   "first_review_pages": 69,
-  "stamp_boxes": 150,
+  "stamp_boxes": 151,
   "signature_boxes": 101,
   "groups": 60,
   "group_sizes": {
@@ -25,5 +25,10 @@
     "Source license declarations do not establish rights for every original.",
     "Candidate graph and dHash may miss duplicates or common document families.",
     "Selection contains no first-review empty pages; negatives require separate selection and QC."
-  ]
+  ],
+  "repeat_overview_pages": 36,
+  "repeat_overview_total": 69,
+  "repeat_overview_scope": "Same reviewer; overview only, not independent final QC",
+  "repeat_overview_issues": 3,
+  "review_correction_sha256": "c912f5f3e9fb6be6127b89c2d81a5df984f0fffb711bdb0edeae93ff59b8668b"
 }
