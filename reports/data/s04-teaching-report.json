@@ -1,0 +1,27 @@
+{
+  "schema_version": "sealsign-s04-teaching-report-v1",
+  "scope": "small private teaching experiment; not an independently audited dataset",
+  "source_bundle_manifest_sha256": "3b1e892ea16d480d9ead42f6a2db291dc9e7e605eb02a77627a87d8502961417",
+  "source_bundle_annotations_sha256": "853f088b1c98fa15326ad8116c28c1975c87ac52d58e0d69cf6aaae97a4a3ef6",
+  "candidate_sha256": "95e5a46594df182873cb4ca226181f547e0d08034cbf67fb21f02873e32bd51d",
+  "split_sha256": "9b793cafcebb933232904a7c9962a341b8b31ee271df4de62c82e8d92966a7af",
+  "export_summary_sha256": "a2af239734d0249b35ae42490df4fed462eae6cfbdd74fd4c4db4c9c358a02c4",
+  "candidate_pages": 69,
+  "excluded_uncertain_pages": 6,
+  "used_pages": 63,
+  "groups": 56,
+  "pages_by_split": {"train": 45, "val": 9, "test": 9},
+  "groups_by_split": {"train": 40, "val": 8, "test": 8},
+  "stamp_boxes_by_split": {"train": 100, "val": 17, "test": 15},
+  "signature_boxes_by_split": {"train": 63, "val": 3, "test": 25},
+  "seed": 42,
+  "known_limitations": [
+    "All selected pages have objects; no independently verified negatives.",
+    "Same reviewer conducted first and repeat overview; no independent QC.",
+    "Images were reviewed at overview scale, so subtle missed objects remain possible.",
+    "Source datasets declare CC BY 4.0 but rights of every underlying document are not established; keep raw data private.",
+    "Near-duplicate grouping uses reviewed candidates and dHash, which can miss related pages.",
+    "Validation has only three signature boxes; all results will be highly uncertain.",
+    "No model has been trained or evaluated; successful training and quality are not guaranteed."
+  ]
+}
