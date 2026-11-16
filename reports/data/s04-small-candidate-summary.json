@@ -1,0 +1,29 @@
+{
+  "schema_version": "sealsign-s04-candidate-summary-v1",
+  "candidate_groups_sha256": "c4ba83f0497f27752ae4e2bd8e99713eb010967afb53d5e31f62dd83233b771c",
+  "source_manifest_sha256": "47a3eebea836614dabfc46885511006542447489b54b561424dc62cbf60cee93",
+  "source_annotations_sha256": "d15643e609f7962bffe8b6cdaea16aed0476dcd79b8c07324d71b0749d99f6ea",
+  "queue_sha256": "cddf759003e09ae26fc266400d9b70ed1b7b8279d9f0e50185b020b3a2bef8d5",
+  "links_sha256": "5cece5861d773ff0ba6ecdb247951128774ff53b1d89c6c73db3154aa385d547",
+  "batch_group_review_sha256": "199d13c3d9a458dff727562eca9977dcd7e23edbb21a5885f94bc35fc16cfca6",
+  "selected_pages": 69,
+  "first_review_pages": 69,
+  "stamp_boxes": 150,
+  "signature_boxes": 101,
+  "groups": 60,
+  "group_sizes": {
+    "1": 53,
+    "2": 6,
+    "4": 1
+  },
+  "additional_dhash_candidates_at_distance_le_2_between_groups": 0,
+  "dhash_pairs_sha256": "1f44b204c9bc42e069a0387c360cc7a70a64824e042b359676d8c1f9da3c8f59",
+  "accepted_for_training": false,
+  "group_split_assigned": false,
+  "limitations": [
+    "First review only; no independent second QC.",
+    "Source license declarations do not establish rights for every original.",
+    "Candidate graph and dHash may miss duplicates or common document families.",
+    "Selection contains no first-review empty pages; negatives require separate selection and QC."
+  ]
+}
