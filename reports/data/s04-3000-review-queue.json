@@ -1,0 +1,25 @@
+{
+  "schema_version": "sealsign-3000-review-summary-v1",
+  "queue_sha256": "17a12b1eff2da101a7676bf3673eef66b0cafa83dc55bc696718e7c141bf5125",
+  "selected_candidates": 3000,
+  "eligible_conservative_groups": 3949,
+  "seed": 42,
+  "source_counts": {
+    "stamp_detection_jsam": 1458,
+    "yolo_stamp_classify": 337,
+    "stamp_detectation_marcos": 265,
+    "neg_rvl_cdip": 784,
+    "neg_funsd": 156
+  },
+  "overview_pages": 12,
+  "fully_reviewed_pages_in_queue": 0,
+  "accepted_for_training": false,
+  "limitations": [
+    "Queue is not a training dataset; source stamp boxes unreviewed and signature annotations missing.",
+    "Existing test and known linked groups excluded, but undetected links may remain.",
+    "Reviewed negative class is not implied by source filenames.",
+    "Original source rights remain unresolved.",
+    "Overview at reduced scale cannot establish complete labels."
+  ],
+  "overlap_with_previous_teaching_train_val_pages": 12
+}
