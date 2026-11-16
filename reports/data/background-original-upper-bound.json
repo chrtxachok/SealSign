@@ -1,0 +1,14 @@
+{
+  "schema_version": "sealsign-background-upper-bound-v1",
+  "review_sha256": "bc4ff011dc434db04474b9b8c4399310ec91bfbae82062a4b20af7f7be80b852",
+  "links_sha256": "5cece5861d773ff0ba6ecdb247951128774ff53b1d89c6c73db3154aa385d547",
+  "inventory_sha256": "a352dfa388cafaa7005f418ed36016806d2e08f73b2c3bc15c9252de344a3348",
+  "images": 7854,
+  "reviewed_components": 570,
+  "within_component_additional_variants": 3423,
+  "independent_cross_component_links": 8,
+  "upper_bound_originals": 4423,
+  "held_components": 13,
+  "interpretation": "Upper bound for these archived images conditional on visual identity decisions; not a verified original count or accepted training set.",
+  "accepted_for_training": false
+}
