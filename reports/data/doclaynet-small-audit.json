@@ -21,6 +21,10 @@
     "patents": 72,
     "government_tenders": 42
   },
+  "distinct_original_filenames": 511,
+  "filenames_in_multiple_upstream_splits": 0,
+  "filenames_with_multiple_pages": 137,
+  "max_pages_per_filename": 53,
   "distinct_image_sha256": 804,
   "duplicate_image_sha256_groups": 0,
   "distinct_source_filename_and_page": 804,

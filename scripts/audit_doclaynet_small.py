@@ -40,6 +40,8 @@ with zipfile.ZipFile(p) as z:
     hashes = collections.Counter()
     keys = collections.Counter()
     categories = collections.Counter()
+    documents = collections.defaultdict(set)
+    document_pages = collections.Counter()
     splits = collections.Counter()
     matches = 0
     dims = collections.Counter()
@@ -69,6 +71,8 @@ with zipfile.ZipFile(p) as z:
         m = data["metadata"]
         keys[(m["original_filename"], m["page_no"])] += 1
         categories[m["doc_category"]] += 1
+        documents[m["original_filename"]].add(spl)
+        document_pages[m["original_filename"]] += 1
         if spl == "train":
             train.append(n)
     random.Random(42).shuffle(train)
@@ -95,6 +99,10 @@ report = {
     "decoded_images": sum(dims.values()),
     "dimensions": dict(dims),
     "category_counts": dict(categories),
+    "distinct_original_filenames": len(documents),
+    "filenames_in_multiple_upstream_splits": sum(len(v) > 1 for v in documents.values()),
+    "filenames_with_multiple_pages": sum(v > 1 for v in document_pages.values()),
+    "max_pages_per_filename": max(document_pages.values()),
     "distinct_image_sha256": len(hashes),
     "duplicate_image_sha256_groups": sum(v > 1 for v in hashes.values()),
     "distinct_source_filename_and_page": len(keys),

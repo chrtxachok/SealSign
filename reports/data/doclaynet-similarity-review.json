@@ -1,0 +1,10 @@
+{
+  "candidate_csv_sha256": "cb86fe559c8e0290c142cd352ef6375ab53a27cfbb88a68b3dc7f719b26cc001",
+  "review_sha256": "9a4a75a93e1b037fef4f1d46912f62e43b75222045449cba12200eb329757ef5",
+  "reviewed_pairs": 19,
+  "visually_different_pairs": 18,
+  "held_uncertain_pairs": 1,
+  "confirmed_duplicate_pairs": 0,
+  "scope": "dHash <=2 candidates only; visual overview, not a recall assessment",
+  "accepted_for_training": false
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": "sealsign-doclaynet-similarity-v1",
+  "inputs_sha256": {
+    "dataset_small.zip": "85e289b3635b2e17937e201e567d98097173a7b8116daa72dd9e9fb61d738597",
+    "train.zip": "07016aa6df14b4b4fab6bfa896469003160f932677bae86e8f91712f6cbdef0c",
+    "val.zip": "0dd0b1fd1259a4a28bdaea12711c658ff0b419af868bcb37ef1686d71aa7c3f5",
+    "test.zip": "c3942fd1dc8037649885c7cec7d5e1c8399b131fe75605083c39d50b674d5f4b"
+  },
+  "doclaynet_images": 804,
+  "mapo80_images": 7854,
+  "within_doclaynet_pairs_compared": 322806,
+  "cross_source_pairs_compared": 6314616,
+  "method": "64-bit grayscale dHash, Hamming distance <= 2",
+  "candidate_counts": {
+    "within_doclaynet": 16,
+    "within_doclaynet_distance_0": 4,
+    "within_doclaynet_distance_2": 10,
+    "within_doclaynet_distance_1": 2,
+    "cross_source": 3,
+    "cross_source_distance_2": 2,
+    "cross_source_distance_1": 1
+  },
+  "candidate_pairs": 19,
+  "candidates_confirmed_duplicates": false,
+  "all_duplicates_excluded": false,
+  "accepted_for_training": false
+}
