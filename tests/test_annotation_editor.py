@@ -77,7 +77,7 @@ def test_offline_editor_and_review(tmp_path):
     root, review = make_source(tmp_path)
     result = builder.build(root, tmp_path / "editor.html")
     assert result["pages"] == 1 and result["accepted_for_training"] is False
-    assert "data:image/png;base64," in (tmp_path / "editor.html").read_text()
+    assert "data:image/png;base64," in (tmp_path / "editor.html").read_text(encoding="utf-8")
     file = tmp_path / "review.json"
     file.write_text(json.dumps(review))
     assert validator.validate(root, file)["first_review_pages"] == 1

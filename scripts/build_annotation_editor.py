@@ -12,10 +12,13 @@ def build(bundle, output):
     if output.exists():
         raise ValueError("Output exists")
     bundle = bundle.resolve()
-    pages = [json.loads(line) for line in (bundle / "manifest.jsonl").read_text().splitlines()]
+    pages = [
+        json.loads(line)
+        for line in (bundle / "manifest.jsonl").read_text(encoding="utf-8").splitlines()
+    ]
     if len(pages) > 200:
         raise ValueError("Use a pilot or batch of at most 200 pages")
-    coco = json.loads((bundle / "annotations.json").read_text())
+    coco = json.loads((bundle / "annotations.json").read_text(encoding="utf-8"))
     images = {im["page_id"]: im for im in coco["images"]}
     payload = {
         "manifest_sha256": sha256(bundle / "manifest.jsonl"),
@@ -55,7 +58,7 @@ def build(bundle, output):
     data = json.dumps(payload, ensure_ascii=False).replace("<", "\\u003c")
     output.parent.mkdir(parents=True, exist_ok=True)
     with output.open("x", encoding="utf-8") as stream:
-        stream.write(template.read_text().replace("__DATASET__", data))
+        stream.write(template.read_text(encoding="utf-8").replace("__DATASET__", data))
     return {
         "pages": len(payload["pages"]),
         "output_bytes": output.stat().st_size,
