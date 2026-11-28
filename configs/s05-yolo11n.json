@@ -1,0 +1,32 @@
+{
+  "initial_weights": "yolo11n.pt",
+  "initial_weights_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+  "common": {
+    "imgsz": 1024,
+    "batch": 4,
+    "device": 0,
+    "workers": 0,
+    "seed": 42,
+    "optimizer": "AdamW",
+    "lr0": 0.001,
+    "deterministic": true,
+    "amp": true,
+    "mosaic": 0.0,
+    "mixup": 0.0,
+    "fliplr": 0.0,
+    "flipud": 0.0,
+    "hsv_h": 0.0,
+    "hsv_s": 0.0,
+    "hsv_v": 0.0,
+    "degrees": 0.0,
+    "translate": 0.0,
+    "scale": 0.0
+  },
+  "experiments": {
+    "E00": {"epochs": 30, "patience": 0, "amp": false, "nbs": 4, "warmup_epochs": 0.0},
+    "E01": {"epochs": 30, "patience": 10},
+    "E02": {"epochs": 30, "patience": 10, "imgsz": 1536},
+    "E04": {"epochs": 30, "patience": 10, "degrees": 5.0, "hsv_v": 0.15}
+  },
+  "evaluation": {"iou": 0.7, "ap_conf": 0.001, "max_det": 300, "match_iou": 0.5}
+}

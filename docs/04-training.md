@@ -40,3 +40,60 @@ Transfer learning двух классов с pretrained small detector. Стар
 ## Воспроизводимость
 
 Каждая строка experiments.csv содержит commit, dataset revision/hash, annotation hash, split hash, config path/hash, seed, model identifier, весовой hash, среду, метрики, длительность, артефакты и замечания. Заполнять только измеренными значениями. Model card включает назначение, данные, лицензионные ограничения, пороги, результаты и известные ошибки. Ссылка на веса должна вести к реально проверяемому артефакту с checksum; не коммитить веса в Git.
+
+## Конфигурация расширенного корпуса
+
+Источник — `mapo80/stamps`, проверенные статусы и геометрия собраны на S04.
+Используйте приватные артефакты из [инструкции передачи](22-handoff-3000.md)
+и завершённые решения QC. Три файла `manifest.jsonl`, `annotations.json` и
+`split.json` фиксируют выборку. Сводка и SHA-256 доступны в `qc-report.json`.
+Сборка создаёт новую папку, существующий экспорт остаётся доступен.
+
+```console
+python -m scripts.finalize_s04 --output artifacts/data-qc/s04-expanded-v1
+```
+
+Для S05 используется YOLO11n с COCO-весами, CUDA 12.8 и версиями из
+[`requirements-s05.txt`](../requirements-s05.txt). Эксперименты используют один
+seed. Конфигурация `s05-yolo11n.json` задаёт до 30 эпох baseline, раннюю
+остановку с patience 10, разрешение 1024 и batch 4. Малый вариант YOLO11n и
+лимит эпох выбраны для первого измеренного baseline на локальной RTX 4070.
+Прогон E00 использует 16 положительных страниц только из train и оценивается
+на тех же страницах для проверки пайплайна. Оценка E01 и последующих
+экспериментов использует замороженный val.
+
+Из корня репозитория с установленными ML-зависимостями выполните E00 и оцените
+`results.csv`. Для последующих запусков используйте тот же входной экспорт.
+Команды E00, E01, E02 и E04 выполнены на Windows с RTX 4070. Для Colab
+подготовлен [ноутбук](../notebooks/s05-training.ipynb) с теми же entrypoints.
+
+```console
+python -m scripts.train_s05 E00 --dataset artifacts/data-qc/s04-expanded-v1 --config configs/s05-yolo11n.json --runs artifacts/s05-runs
+python -m scripts.train_s05 E01 --dataset artifacts/data-qc/s04-expanded-v1 --config configs/s05-yolo11n.json --runs artifacts/s05-runs
+python -m scripts.evaluate_s05 --experiment E01 --split val --data artifacts/data-qc/s04-expanded-v1/dataset.yaml --config configs/s05-yolo11n.json --weights artifacts/s05-runs/E01/weights/best.pt --output artifacts/s05-runs/E01/validation
+```
+
+Для вариантов E02 и E04 подставьте их идентификаторы в команды обучения
+и оценки. `run-inputs.json` фиксирует использованные параметры, контрольные
+суммы и окружение. `args.yaml` содержит эффективные параметры Ultralytics.
+Скрипт `package_s05` выбирает лучшую модель по mAP50–95 на val и проверяет
+загрузку на CPU.
+
+```console
+python -m scripts.package_s05 --runs artifacts/s05-runs --experiments E01 E02 E04 --output artifacts/s05-runs/bundle-v1
+python -m scripts.evaluate_s05 --experiment E01 --split test --data artifacts/data-qc/s04-expanded-v1/dataset.yaml --config configs/s05-yolo11n.json --weights artifacts/s05-runs/bundle-v1/model.pt --thresholds-from artifacts/s05-runs/E01/validation/metrics.json --output artifacts/s05-runs/test-expanded
+```
+
+На втором, прежнем учебном test использованы те же веса и `--thresholds-from`.
+Его каталог `artifacts/data-qc/s04-teaching-v1/yolo` содержит прежний экспорт.
+Для оценки используется YAML с
+`train`, `val` и `test`, указывающими на `images/test`, и `names: [stamp, signature]`.
+Команда оценки с `--split test` обрабатывает только test. Реальные метрики,
+ограничения и ссылки на пример приведены в [отчёте S05](../reports/s05-training.md).
+
+Скорость замерена на 100 страницах val. Параметры бенчмарка и метрики выводятся
+в JSON.
+
+```console
+python -m scripts.benchmark_s05 --bundle artifacts/s05-runs/bundle-v1 --dataset artifacts/data-qc/s04-expanded-v1 --device 0 --output artifacts/s05-runs/benchmark-gpu.json
+```

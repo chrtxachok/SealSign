@@ -1,0 +1,6 @@
+# Windows/Linux CUDA 12.8. Install in a dedicated Python 3.11/3.12 environment.
+--extra-index-url https://download.pytorch.org/whl/cu128
+torch==2.7.1+cu128
+torchvision==0.22.1+cu128
+ultralytics==8.3.228
+Pillow==13.0.0
