@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SealSign — проверка страницы</title>
+  <link rel="stylesheet" href="/demo.css">
+  <script src="/demo.js" defer></script>
+</head>
+<body>
+  <header class="masthead">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">S</span> SealSign</div>
+  </header>
+  <main>
+    <h1>Проверка страницы</h1>
+    <div class="workspace">
+      <section class="panel viewer" aria-label="Страница документа">
+        <div class="viewer-head">
+          <h2>Документ</h2>
+          <span id="filename"></span>
+        </div>
+        <div id="dropzone" class="dropzone">
+          <input id="file" type="file" accept=".png,.jpg,.jpeg,image/png,image/jpeg" hidden>
+          <button id="choose" type="button">Выбрать файл</button>
+          <p>или перетащите страницу сюда</p>
+          <small>JPEG или PNG · до 20 МиБ</small>
+          <button id="sample" class="quiet sample" type="button">Открыть пример</button>
+        </div>
+        <div id="paper" class="paper" hidden>
+          <img id="preview" alt="Загруженная страница">
+          <svg id="overlay" aria-hidden="true"></svg>
+        </div>
+        <div class="viewer-footer" id="actions" hidden>
+          <button id="replace" class="quiet" type="button">Заменить файл</button>
+        </div>
+      </section>
+      <section class="panel results" aria-labelledby="results-title">
+        <h2 id="results-title">Результат</h2>
+        <p id="status" role="status" aria-live="polite">Загрузите страницу для анализа.</p>
+        <button id="analyze" type="button" hidden>Найти печати и подписи</button>
+        <ul class="legend" aria-label="Обозначения рамок">
+          <li><span class="swatch stamp"></span> Печать <strong id="count-stamp">—</strong></li>
+          <li><span class="swatch signature"></span> Подпись <strong id="count-signature">—</strong></li>
+        </ul>
+        <ol id="detections" class="detections" hidden></ol>
+        <p id="model" class="model" hidden></p>
+        <button id="download" class="quiet" type="button" hidden>Скачать JSON</button>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
