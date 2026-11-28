@@ -24,7 +24,7 @@ def audit(path):
             if (
                 name.is_absolute()
                 or ".." in name.parts
-                or "\\" in entry.filename
+                or "\\" in entry.orig_filename
                 or stat.S_ISLNK(entry.external_attr >> 16)
                 or entry.filename in seen_paths
             ):

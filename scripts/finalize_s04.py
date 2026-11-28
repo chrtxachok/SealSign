@@ -210,7 +210,7 @@ def finalize(output):
     print(json.dumps(summary, indent=2))
 
 
-def export(bundle, manifest, labels, split):
+def export(bundle, manifest, labels, split, *, archives_dir=ARCHIVES, newline=None):
     summary = {}
     for part in split:
         (bundle / "images" / part).mkdir(parents=True)
@@ -218,7 +218,7 @@ def export(bundle, manifest, labels, split):
         summary[part] = Counter(pages=0, negatives=0, stamp=0, signature=0, groups=len(split[part]))
     with ExitStack() as stack:
         archives = {
-            name: stack.enter_context(ZipFile(ARCHIVES / name))
+            name: stack.enter_context(ZipFile(archives_dir / name))
             for name in ("train.zip", "val.zip", "test.zip")
         }
         for p in manifest:
@@ -247,10 +247,14 @@ def export(bundle, manifest, labels, split):
                 values = ((x + w / 2) / width, (y + h / 2) / height, w / width, h / height)
                 lines.append(f"{category} " + " ".join(f"{value:.10f}" for value in values))
             label_file = bundle / "labels" / part / f"{p['page_id']}.txt"
-            label_file.write_text("".join(line + "\n" for line in lines), encoding="ascii")
+            label_file.write_text(
+                "".join(line + "\n" for line in lines), encoding="ascii", newline=newline
+            )
             p["label_sha256"] = digest(label_file)
     (bundle / "dataset.yaml").write_text(
-        "train: images/train\nval: images/val\ntest: images/test\nnames: [stamp, signature]\n"
+        "train: images/train\nval: images/val\ntest: images/test\nnames: [stamp, signature]\n",
+        encoding="ascii",
+        newline=newline,
     )
     return summary
 

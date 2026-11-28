@@ -34,7 +34,10 @@ def test_exact_copies_and_unreviewed_labels(tmp_path):
 def test_reject_unsafe_paths(tmp_path, name):
     path = tmp_path / "unsafe.zip"
     with zipfile.ZipFile(path, "w") as archive:
-        archive.writestr(name, b"data")
+        # Preserve the raw ZIP member name on Windows too.
+        member = zipfile.ZipInfo(name)
+        member.filename = name
+        archive.writestr(member, b"data")
     with pytest.raises(ValueError, match="Unsafe"):
         module.audit(path)
 
